@@ -1,0 +1,13 @@
+language: python
+
+python:
+  - "3.6"
+
+git:
+  depth: 1
+
+install:
+  - pip3 install -r requirements.txt
+
+script:
+  - python -m unittest discover -p "*_test.py"
