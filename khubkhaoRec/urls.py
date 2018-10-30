@@ -20,5 +20,5 @@ from khubkhaoapp.views import IndexView, FoodListView, AllFoodListView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bookshelf/', AllFoodListView.as_view()),
-    path('', IndexView),
+    path('', IndexView.as_view()),
 ]
