@@ -1,0 +1,146 @@
+{% load static %}
+<html lang=en>
+
+<head>
+    <title>KhubKhao Recommender</title>
+    <link rel="stylesheet" href="{% static 'khubkhaoapp/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body style="background-color: #fff59d">
+    <div class="webpage">
+        <div class="jumbotron" style="background-color: #ffba55; padding: 20px;">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <img src="static/khubkhaoapp/images/logo.png" width="100px" height="100px">
+                </div>
+                <div class="col-8">
+                    <div class="header_font">
+                        KHUBKHAO RECOMMENDER
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row" style="padding-left: 20px; padding-right: 20px;">
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="row" style="height: 20px;"></div>
+                    <div class="barcontent">
+                        <div class="row">
+                            <label style="font-size: 20px;">Vegetarian:</label>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="veg" id="veg1" value="option1"
+                                        checked>
+                                    <label class="form-check-label" for="veg1">
+                                        Pollovegetarians
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="veg" id="veg2" value="option2">
+                                    <label class="form-check-label" for="veg2">
+                                        Pescovegetarians
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="veg" id="veg3" value="option3">
+                                    <label class="form-check-label" for="veg3">
+                                        Lacto-Ovo-Vegetatarians
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="veg" id="veg4" value="option4">
+                                    <label class="form-check-label" for="veg4">
+                                        Lacto-Vagetarians
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="veg" id="veg5" value="option5">
+                                    <label class="form-check-label" for="veg5">
+                                        Vegans
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <label style="font-size: 20px;">Non-Vegetarian:</label>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="rice">
+                                    <label class="form-check-label" for="rice">Rice</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="bread">
+                                    <label class="form-check-label" for="bread">Bread</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="noodle">
+                                    <label class="form-check-label" for="noodle">Noodle</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="pasta">
+                                    <label class="form-check-label" for="pasta">Pasta</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="pork">
+                                    <label class="form-check-label" for="pork">Pork</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="beef">
+                                    <label class="form-check-label" for="beef">Beef</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="chicken">
+                                    <label class="form-check-label" for="chicken">Chicken</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="duck">
+                                    <label class="form-check-label" for="duck">Duck</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="fish">
+                                    <label class="form-check-label" for="fish">Fish</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="shrimp">
+                                    <label class="form-check-label" for="shrimp">Shrimp</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="squid">
+                                    <label class="form-check-label" for="squid">Squid</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="crab">
+                                    <label class="form-check-label" for="crab">Crab</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="shellfish">
+                                    <label class="form-check-label" for="shellfish">Shellfish</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="cheese">
+                                    <label class="form-check-label" for="cheese">Cheese</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="egg">
+                                    <label class="form-check-label" for="egg">Egg</label>
+                                    <br>
+                                    <input type="checkbox" class="form-check-input" id="mushroom">
+                                    <label class="form-check-label" for="mushroom">Mushroom</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-auto collapse">
+                <div class="content">
+                    <div class="row"></div>
+
+                    <!-- {% for food in foods_list %}
+
+                    {% endfor %} -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
