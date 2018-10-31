@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from khubkhaoapp.views import IndexView, FoodListView, AllFoodListView
+from khubkhaoapp.views import IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bookshelf/', AllFoodListView.as_view()),
-    path('', IndexView.as_view()),
+    path('', IndexView)
 ]
