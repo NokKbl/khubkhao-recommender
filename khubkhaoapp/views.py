@@ -2,15 +2,19 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from khubkhaoapp.models import Item,Veggie,Food
+from django.views.generic import TemplateView
+from khubkhaoapp.models import Category,EthnicFood, Food
 
-def IndexView(request):
-    query_one = Food.objects.all()
-    query_two = Item.objects.all()
-    query_three = Veggie.objects.all()
-    context = {
-        'food_list': query_one,
-        'category_list': query_two,
-        'vegie_list': query_three,
-    }
-    return render(request, 'khubkhaoapp/index.html', context)
+class IndexTemplateView(TemplateView):
+    template_name = 'khubkhaoapp/index.html'
+    def get_context_data(self,*args,**kwargs):
+        context = super(IndexTemplateView,self).get_context_data(*args, **kwargs)
+        food_list = Food.objects.all()
+        category_list = Category.objects.all()
+        ethnic_list = EthnicFood.objects.all()
+        context = {
+            'food_list': food_list,
+            'category_list': category_list,
+            'ethnic_list': ethnic_list,
+        }
+        return context
