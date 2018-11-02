@@ -31,14 +31,14 @@
                     <div class="row" style="height: 20px;"></div>
                     <div class="barcontent">
                         <div class="row">
-                            <label style="font-size: 20px;">Let's choose some ethnic type(s):</label>
+                            <label style="font-size: 20px;">Let's start your meal with select some food ethnic!</label>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group form-check">
                                     {% for ethnic in ethnic_list %}
-                                    <input type="checkbox" class="form-check-input" id="{{ ethnic.id }}">
-                                    <label class="form-check-label" for="{{ ethnic.id }}">{{ ethnic }}</label>
+                                    <input type="checkbox" class="form-check-input" id="eth{{ forloop.counter }}">
+                                    <label class="form-check-label" for="eth{{ forloop.counter }}">{{ ethnic }}</label>
                                     <br>
                                     {% endfor %}
                                 </div>
@@ -46,19 +46,21 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <label style="font-size: 15px;">Need more specific?</label>
-                            <label style="font-size: 20px;">Let's choose some choice(s) below.</label>
+                            <label style="font-size: 17px;">Need more specific...?</label>
+                            <label style="font-size: 17px;">Choose some choice(s) below.</label>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group form-check">
                                     {% for category in category_list %}
-                                    <input type="checkbox" class="form-check-input" id="{{ category.id }}">
-                                    <label class="form-check-label" for="{{ category.id }}">{{ category }}</label>
+                                    <input type="checkbox" class="form-check-input" id="cat{{ forloop.counter }}">
+                                    <label class="form-check-label" for="cat{{ forloop.counter }}">{{ category }}</label>
                                     <br>
                                     {% endfor %}
                                 </div>
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+                                <a href="">
+                                    <button class="btn btn-warning btn-lg btn-block" type="submit">Submit</button>
+                                </a>
                                 <br>
                             </div>
                         </div>
