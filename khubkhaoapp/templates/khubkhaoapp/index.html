@@ -30,7 +30,8 @@
                 <div class="sidebar">
                     <div class="row" style="height: 20px;"></div>
                     <div class="barcontent">
-                        <form action="{% url 'khubkhaoapp:result' %}" method="POST">
+                        <form action="" method="POST">
+                            {% csrf_token %}
                             <div class="row">
                                 <label style="font-size: 20px;">Let's start your meal with select some food ethnic!</label>
                             </div>
