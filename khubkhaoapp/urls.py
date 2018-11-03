@@ -1,8 +1,10 @@
-# pages/urls.py
+# khubkhaoapp/urls.py
+
 from django.urls import path
+from khubkhaoapp.views import IndexView, IndexResultView
 
-from . import views
-
+app_name = 'khubkhaoapp'
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
+    path('', IndexView.as_view(), name='index'),
+    path('result/', IndexResultView, name='result'),
 ]

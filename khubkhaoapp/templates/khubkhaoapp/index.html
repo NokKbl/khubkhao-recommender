@@ -13,7 +13,7 @@
         <div class="jumbotron" style="background-color: #ffba55; padding: 20px;">
             <div class="row align-items-center">
                 <div class="col-2">
-                    <img src="static/khubkhaoapp/images/logo.png" width="100px" height="100px">
+                    <img src="{% static 'khubkhaoapp/images/logo.png' %}" width="100px" height="100px">
                 </div>
                 <div class="col-8">
                     <div class="header_font">
@@ -30,40 +30,40 @@
                 <div class="sidebar">
                     <div class="row" style="height: 20px;"></div>
                     <div class="barcontent">
-                        <div class="row">
-                            <label style="font-size: 20px;">Let's start your meal with select some food ethnic!</label>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group form-check">
-                                    {% for ethnic in ethnic_list %}
-                                    <input type="checkbox" class="form-check-input" id="eth{{ forloop.counter }}">
-                                    <label class="form-check-label" for="eth{{ forloop.counter }}">{{ ethnic }}</label>
-                                    <br>
-                                    {% endfor %}
+                        <form action="{% url 'khubkhaoapp:result' %}" method="POST">
+                            <div class="row">
+                                <label style="font-size: 20px;">Let's start your meal with select some food ethnic!</label>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        {% for ethnic in ethnic_list %}
+                                        <input type="checkbox" name="food_ethnic" class="form-check-input" value={{ethnic.pk}} name="ethnic_name" id="ethnic{{ forloop.counter }}">
+                                        <label class="form-check-label" for="ethnic{{ forloop.counter }}">{{ ethnic }}</label>
+                                        <br>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <label style="font-size: 17px;">Need more specific...?</label>
-                            <label style="font-size: 17px;">Choose some choice(s) below.</label>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group form-check">
-                                    {% for category in category_list %}
-                                    <input type="checkbox" class="form-check-input" id="cat{{ forloop.counter }}">
-                                    <label class="form-check-label" for="cat{{ forloop.counter }}">{{ category }}</label>
-                                    <br>
-                                    {% endfor %}
-                                </div>
-                                <a href="">
-                                    <button class="btn btn-warning btn-lg btn-block" type="submit">Submit</button>
-                                </a>
-                                <br>
+                            <hr>
+                            <div class="row">
+                                <label style="font-size: 17px;">Need more specific...?</label>
+                                <label style="font-size: 17px;">Choose some choice(s) below.</label>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        {% for category in category_list %}
+                                        <input type="checkbox" name="food_cate" class="form-check-input" value={{category.pk}} name="category_name" id="category{{ forloop.counter }}">
+                                        <label class="form-check-label" for="category{{ forloop.counter }}">{{ category }}</label>
+                                        <br>
+                                        {% endfor %}
+                                    </div>
+                                    <input class="btn btn-warning btn-lg btn-block" type="submit" value="Submit" />
+                                    <br>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
