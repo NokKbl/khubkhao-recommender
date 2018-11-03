@@ -47,8 +47,10 @@ class Food(models.Model):
         null=True,
     )
 
-    rate = models.PositiveIntegerField(
+    rate = models.DecimalField(
         default=0,
+        max_digits=5,
+        decimal_places=2,
         verbose_name='Rate',
         blank=True,
         null=True,
