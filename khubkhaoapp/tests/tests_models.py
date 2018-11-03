@@ -36,3 +36,16 @@ class FoodModelTest(TestCase):
         ethnic_food = EthnicFood(ethnic_food_name='JapanFood')
         text = Food(ethnic_food_name=ethnic_food)
         self.assertEqual(Food.get_ethnic_food_name(text),text.ethnic_food_name)
+
+    def test_ManyToMany_of_category_representation(self):
+        category1 = Category(type_name='Rice')
+        category1.save()
+        category2 = Category(type_name='Healthy')
+        category2.save()
+        ethnic_food = EthnicFood(ethnic_food_name='ThaiFood')
+        ethnic_food.save()
+        food = Food(food_name='Jok',ethnic_food_name=ethnic_food)
+        food.save()
+        food.category.add(category1)
+        food.category.add(category2)
+        self.assertEqual(list(food.category.all()), [category1, category2])
