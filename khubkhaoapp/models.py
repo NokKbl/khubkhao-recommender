@@ -64,7 +64,8 @@ class Food(models.Model):
 
     category = models.ManyToManyField(
         Category,
-        verbose_name='Category'
+        verbose_name='Category',
+        blank=False
     )
     
     def __str__(self):
