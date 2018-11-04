@@ -100,7 +100,7 @@ if 'test' in sys.argv:
         'NAME': 'khubkhao_db',
         'USER': 'postgres',
         'PASSWORD': 'pxz',
-        'HOST':'localhost',
+        'HOST': 'localhost'
     }
 
 
