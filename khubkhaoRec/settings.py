@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import dj_database_url
-import sys
+import django_heroku
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,15 +27,12 @@ SECRET_KEY = 'a7qia@rzah#6fxtg7!iru40!7@ut&hfupm268_thcsd&^!_z6v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['khubkhao-rec.herokuapp.com', '127.0.0.1']
-
+ALLOWED_HOSTS = ['.herokuapp.com', '.localhost']
 
 # Application definition
 
 INSTALLED_APPS = [
     'khubkhaoapp',
-    'bootstrap3',
-    'psycopg2',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +43,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,25 +80,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'khubkhao_db',
-        'USER': 'ewvgxlekbmgtsp',
-        'PASSWORD': '5cc098d3714666bdbe3131ee15e3d9d2668c1e0e66e1387b4a3ca0350830518e',
-        'HOST': 'ec2-54-225-110-152.compute-1.amazonaws.com',
+        'USER': config('KKR_USER_DB'),
+        'PASSWORD': config('KKR_PWD_DB'),
+        'HOST': config('KKR_HOST_DB'),
         'PORT': '5432',
     }
 }
-
-database_url = 'postgres://ewvgxlekbmgtsp:5cc098d3714666bdbe3131ee15e3d9d2668c1e0e66e1387b4a3ca0350830518e@ec2-54-225-110-152.compute-1.amazonaws.com:5432/dbcp7g4m11efc5'
-DATABASES['default'] = dj_database_url.config(default=database_url, conn_max_age=600, ssl_require=True)
-
-if 'test' in sys.argv:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'khubkhao_db',
-        'USER': 'postgres',
-        'PASSWORD': 'pxz',
-        'HOST': 'localhost'
-    }
-
 
 
 # Password validation
@@ -143,6 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/static/khubkhapapp/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+django_heroku.settings(locals())

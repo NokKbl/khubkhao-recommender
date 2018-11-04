@@ -39,7 +39,7 @@
                                 <div class="col">
                                     <div class="form-group form-check">
                                         {% for ethnic in ethnic_list %}
-                                        <input type="checkbox" name="food_ethnic" class="form-check-input" value={{ethnic.pk}} name="ethnic_name" id="ethnic{{ forloop.counter }}">
+                                        <input type="checkbox" class="form-check-input" value={{ethnic.pk}} name="ethnic_name" id="ethnic{{ forloop.counter }}">
                                         <label class="form-check-label" for="ethnic{{ forloop.counter }}">{{ ethnic }}</label>
                                         <br>
                                         {% endfor %}
@@ -55,7 +55,7 @@
                                 <div class="col">
                                     <div class="form-group form-check">
                                         {% for category in category_list %}
-                                        <input type="checkbox" name="food_cate" class="form-check-input" value={{category.pk}} name="category_name" id="category{{ forloop.counter }}">
+                                        <input type="checkbox" class="form-check-input" value={{category.pk}} name="category_name" id="category{{ forloop.counter }}">
                                         <label class="form-check-label" for="category{{ forloop.counter }}">{{ category }}</label>
                                         <br>
                                         {% endfor %}
