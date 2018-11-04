@@ -1,0 +1,20 @@
+* {
+    font-family: 'Comic Sans MS';
+}
+
+.header_font {
+    text-align: center;
+    font-size: 35px;
+    color: #4c352d;
+}
+
+.sidebar {
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #F0E68C;
+}
+
+.barcontent {
+    padding-left: 20px;
+    padding-right: 20px;
+}
