@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/static/khubkhapapp/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Connect Heroku to local
 django_heroku.settings(locals())
