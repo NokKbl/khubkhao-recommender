@@ -14,7 +14,7 @@ env:
 
 script:
   - python -m unittest discover -p "*_test.py"
-  - python3 manage.py makemigrations
-  - python3 manage.py migrate
-  - python3 manage.py collectstatic
-  - python3 manage.py test --noinput khubkhaoapp/tests
+  - python manage.py makemigrations
+  - python manage.py migrate
+  - python manage.py collectstatic
+  - python manage.py test --noinput khubkhaoapp/tests
