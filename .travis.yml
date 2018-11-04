@@ -11,6 +11,11 @@ install:
 
 env:
   - TRAVIS_SECURE_ENV_VARS=true
+  - DEBUG=True
+  - KKR_USER_DB=adminTry
+  - KKR_PWD_DB=try123
+  - KKR_HOST_DB=35.240.165.203
+
 
 script:
   - python -m unittest discover -p "*_test.py"
