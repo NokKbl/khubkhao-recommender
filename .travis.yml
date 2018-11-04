@@ -9,6 +9,9 @@ git:
 install:
   - pip3 install -r requirements.txt
 
+env:
+  - TRAVIS_SECURE_ENV_VARS=true
+
 script:
   - python -m unittest discover -p "*_test.py"
   - python manage.py makemigrations
