@@ -24,7 +24,7 @@ class Category(models.Model):
 
 class Food(models.Model):
     food_name = models.CharField(
-        max_length=20,
+        max_length=40,
         verbose_name='Food name',
         unique=True,
         blank=False,
