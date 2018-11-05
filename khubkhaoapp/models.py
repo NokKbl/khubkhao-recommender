@@ -10,6 +10,9 @@ class EthnicFood(models.Model):
     )
     def __str__(self):
         return self.ethnic_food_name
+    class Meta:
+        verbose_name = "Ethnic food"
+        verbose_name_plural = "Ethnic foods"
 
 class Category(models.Model):
     type_name = models.CharField(
@@ -21,10 +24,13 @@ class Category(models.Model):
     )
     def __str__(self):
         return self.type_name
+    class Meta:
+         verbose_name = "Category"
+         verbose_name_plural = "Categories"
 
 class Food(models.Model):
     food_name = models.CharField(
-        max_length=20,
+        max_length=40,
         verbose_name='Food name',
         unique=True,
         blank=False,
@@ -87,3 +93,6 @@ class Food(models.Model):
     
     def get_category(self):
         return self.category
+    class Meta:
+         verbose_name = "Food"
+         verbose_name_plural = "Foods"
