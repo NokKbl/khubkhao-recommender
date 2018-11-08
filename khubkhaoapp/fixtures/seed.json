@@ -1,0 +1,153 @@
+[
+    {
+        "model": "khubkhaoapp.category",
+        "pk": 1,
+        "fields": {
+            "type_name": "Rice dish"
+        }
+    },
+    {
+        "model": "khubkhaoapp.category",
+        "pk": 2,
+        "fields": {
+            "type_name": "Noodles dish"
+        }
+    },
+    {
+        "model": "khubkhaoapp.category",
+        "pk": 3,
+        "fields": {
+            "type_name": "Pasta dish"
+        }
+    },
+    {
+        "model": "khubkhaoapp.category",
+        "pk": 4,
+        "fields": {
+            "type_name": "Seafood"
+        }
+    },
+    {
+        "model": "khubkhaoapp.category",
+        "pk": 5,
+        "fields": {
+            "type_name": "Healthy food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.category",
+        "pk": 6,
+        "fields": {
+            "type_name": "Vegetarian food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.ethnicfood",
+        "pk": 1,
+        "fields": {
+            "ethnic_food_name": "Chinese food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.ethnicfood",
+        "pk": 2,
+        "fields": {
+            "ethnic_food_name": "Italian food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.ethnicfood",
+        "pk": 3,
+        "fields": {
+            "ethnic_food_name": "Japanese food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.ethnicfood",
+        "pk": 4,
+        "fields": {
+            "ethnic_food_name": "Korean food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.ethnicfood",
+        "pk": 5,
+        "fields": {
+            "ethnic_food_name": "Mexican food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.ethnicfood",
+        "pk": 6,
+        "fields": {
+            "ethnic_food_name": "Thai food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.ethnicfood",
+        "pk": 7,
+        "fields": {
+            "ethnic_food_name": "Vietnamese food"
+        }
+    },
+    {
+        "model": "khubkhaoapp.food",
+        "pk": 1,
+        "fields": {
+            "food_name": "Baozi",
+            "image_location": "http://drive.google.com/uc?export=view&id=1zbH52fRGRqMGRMSnEi2BGTU4D--Gkoy5",
+            "average_price": 15,
+            "rate": 43.25,
+            "ethnic_food_name": 1,
+            "category": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "khubkhaoapp.food",
+        "pk": 2,
+        "fields": {
+            "food_name": "Pecking Duck",
+            "image_location": "http://drive.google.com/uc?export=view&id=1rhdmvrUhctpm_6XRNrDGe9elBAZmpSgf",
+            "average_price": 75,
+            "rate": 72.00,
+            "ethnic_food_name": 1,
+            "category": [
+                1,
+                5
+            ]
+        }
+    },
+    {
+        "model": "khubkhaoapp.food",
+        "pk": 3,
+        "fields": {
+            "food_name": "Crossing the Bridge Noodles",
+            "image_location": "http://drive.google.com/uc?export=view&id=1XN5r_r6sVSfTL7NoseqtC0Uh1bEB0JBe",
+            "average_price": 50,
+            "rate": 84.5,
+            "ethnic_food_name": 1,
+            "category": [
+                2,
+                3,
+                5
+            ]
+        }
+    },
+    {
+        "model": "khubkhaoapp.food",
+        "pk": 4,
+        "fields": {
+            "food_name": "Hairy Crab",
+            "image_location": "http://drive.google.com/uc?export=view&id=1WAgEppDF_NXijH6iYv2MRKwmhd0EKsld",
+            "average_price": 180,
+            "rate": 75.94,
+            "ethnic_food_name": 1,
+            "category": [
+                4,
+                5
+            ]
+        }
+    }
+]
