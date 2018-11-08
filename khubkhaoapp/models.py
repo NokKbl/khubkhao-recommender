@@ -46,18 +46,29 @@ class Food(models.Model):
         help_text='Enter url location'
     )
 
-    average_price = models.PositiveIntegerField(
+    average_price = models.DecimalField(
         default=0,
+        max_digits=5,
+        decimal_places=2,
         verbose_name='Average price',
         blank=True,
         null=True,
     )
 
-    rate = models.DecimalField(
+    original_rate = models.DecimalField(
         default=0,
         max_digits=5,
         decimal_places=2,
-        verbose_name='Rate',
+        verbose_name='Original Rate',
+        blank=True,
+        null=True,
+    )
+
+    user_rate = models.DecimalField(
+        default=0,
+        max_digits=5,
+        decimal_places=2,
+        verbose_name='User Rate',
         blank=True,
         null=True,
     )
@@ -85,8 +96,11 @@ class Food(models.Model):
     def get_image_location(self):
         return self.image_location
     
-    def get_rate(self):
-        return self.rate
+    def get_original_rate(self):
+        return self.original_rate
+
+    def get_user_rate(self):
+        return self.user_rate
 
     def get_ethnic_food_name(self):
         return self.ethnic_food_name
