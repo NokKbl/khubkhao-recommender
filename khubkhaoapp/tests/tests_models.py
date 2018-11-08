@@ -29,8 +29,8 @@ class FoodModelTest(TestCase):
         self.assertEqual(Food.get_average_price(baht),baht.average_price)
 
     def test_intenger_of_rate_representation(self):
-        number = Food(rate=10)
-        self.assertEqual(Food.get_rate(number),number.rate)
+        number = Food(original_rate=10)
+        self.assertEqual(Food.get_original_rate(number),number.original_rate)
 
     def test_objects_of_ethnic_food_name_representation(self):
         ethnic_food = EthnicFood(ethnic_food_name='JapanFood')
