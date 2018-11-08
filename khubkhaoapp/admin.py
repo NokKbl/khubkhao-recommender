@@ -4,7 +4,7 @@ from .models import Food,Category,EthnicFood
 class FoodAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,          {'fields': ['food_name']}),
-        ('Details',     {'fields': ['image_location','average_price','rate']}),
+        ('Details',     {'fields': ['image_location','average_price','original_rate','user_rate']}),
         ('Ethnic Food',      {'fields': ['ethnic_food_name']}),
         ('Category',      {'fields': ['category']}),
     ]
