@@ -1,56 +1,56 @@
 [
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate1",
+        "pk": 1,
         "fields": {
             "type_name": "Rice dish"
         }
     },
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate2",
+        "pk": 2,
         "fields": {
             "type_name": "Noodles dish"
         }
     },
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate3",
+        "pk": 3,
         "fields": {
             "type_name": "Pasta dish"
         }
     },
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate4",
+        "pk": 4,
         "fields": {
             "type_name": "Seafood"
         }
     },
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate5",
+        "pk": 5,
         "fields": {
             "type_name": "Healthy food"
         }
     },
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate6",
+        "pk": 6,
         "fields": {
             "type_name": "Vegetarian food"
         }
     },
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate7",
+        "pk": 7,
         "fields": {
             "type_name": "Soup"
         }
     },
     {
         "model": "khubkhaoapp.category",
-        "pk": "cate8",
+        "pk": 8,
         "fields": {
             "type_name": "Side dish"
         }
@@ -60,49 +60,49 @@
 
     {
         "model": "khubkhaoapp.ethnicfood",
-        "pk": "eth1",
+        "pk": 101,
         "fields": {
             "ethnic_food_name": "Chinese food"
         }
     },
     {
         "model": "khubkhaoapp.ethnicfood",
-        "pk": "eth2",
+        "pk": 102,
         "fields": {
             "ethnic_food_name": "Italian food"
         }
     },
     {
         "model": "khubkhaoapp.ethnicfood",
-        "pk": "eth3",
+        "pk": 103,
         "fields": {
             "ethnic_food_name": "Japanese food"
         }
     },
     {
         "model": "khubkhaoapp.ethnicfood",
-        "pk": "eth4",
+        "pk": 104,
         "fields": {
             "ethnic_food_name": "Korean food"
         }
     },
     {
         "model": "khubkhaoapp.ethnicfood",
-        "pk": "eth5",
+        "pk": 105,
         "fields": {
             "ethnic_food_name": "Mexican food"
         }
     },
     {
         "model": "khubkhaoapp.ethnicfood",
-        "pk": "eth6",
+        "pk": 106,
         "fields": {
             "ethnic_food_name": "Thai food"
         }
     },
     {
         "model": "khubkhaoapp.ethnicfood",
-        "pk": "eth7",
+        "pk": 107,
         "fields": {
             "ethnic_food_name": "Vietnamese food"
         }
@@ -112,77 +112,77 @@
 
     {
         "model": "khubkhaoapp.food",
-        "pk": "cn1",
+        "pk": 1001,
         "fields": {
             "food_name": "Bak Kut Teh",
             "image_location": "http://drive.google.com/uc?export=view&id=1vWtl_ugPgkcZnEgVm7NcPGV-5EUl9kJw",
             "average_price": 6.5,
             "original_rate": 80,
-            "ethnic_food_name": "eht1",
+                "ethnic_food_name": 101,
             "category": [
-                "cate5",
-                "cate7",
-                "cate8"
+                5,
+                7,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "cn2",
+        "pk": 1002,
         "fields": {
             "food_name": "Bang Tofu",
             "image_location": "http://drive.google.com/uc?export=view&id=1QvArGhu-9NPUExMG0eyKuaF9R8v1MxMw",
             "average_price": 4.47,
             "original_rate": 80,
-            "ethnic_food_name": "eht1",
+            "ethnic_food_name": 101,
             "category": [
-                "cate5",
-                "cate6",
-                "cate8"
+                5,
+                6,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "cn3",
+        "pk": 1003,
         "fields": {
             "food_name": "Baozi",
             "image_location": "http://drive.google.com/uc?export=view&id=1zbH52fRGRqMGRMSnEi2BGTU4D--Gkoy5",
             "average_price": 3.1,
             "original_rate": 84,
-            "ethnic_food_name": "eth1",
+            "ethnic_food_name": 101,
             "category": [
-                "cate5",
-                "cate8"
+                5,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "cn4",
+        "pk": 1004,
         "fields": {
             "food_name": "Beef Chow Fun",
             "image_location": "http://drive.google.com/uc?export=view&id=1hry-t3raBZOBGBss1D6lx8ku0U_dSDr1",
             "average_price": 7.25,
             "original_rate": 86,
-            "ethnic_food_name": "eth1",
+            "ethnic_food_name": 101,
             "category": [
-                "cate2",
-                "cate8"
+                2,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "cn5",
+        "pk": 1005,
         "fields": {
             "food_name": "Beggar's Chicken",
             "image_location": "http://drive.google.com/uc?export=view&id=17TMMM57Qz-CfhtYjwevsBz2BLbFpi60H",
             "average_price": 48,
             "original_rate": 68,
-            "ethnic_food_name": "eth1",
+            "ethnic_food_name": 101,
             "category": [
-                "cate8"
+                8
             ]
         }
     },
@@ -191,76 +191,76 @@
 
     {
         "model": "khubkhaoapp.food",
-        "pk": "it1",
+        "pk": 2001,
         "fields": {
             "food_name": "Acquacotta",
             "image_location": "http://drive.google.com/uc?export=view&id=1phRmHSkEqiQgQDdwleg2rDVxENvD17hd",
             "average_price": 9,
             "original_rate": 88,
-            "ethnic_food_name": "eth2",
+            "ethnic_food_name": 102,
             "category": [
-                "cate7",
-                "cate8"
+                7,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "it2",
+        "pk": 2002,
         "fields": {
             "food_name": "Acqua Pazza",
             "image_location": "http://drive.google.com/uc?export=view&id=1Tb87UGSikXeu0oNb810izzrw4EiWJZ6w",
             "average_price": 7,
             "original_rate": 92,
-            "ethnic_food_name": "eth2",
+            "ethnic_food_name": 102,
             "category": [
-                "cate6",
-                "cate7",
-                "cate8"
+                6,
+                7,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "it3",
+        "pk": 2003,
         "fields": {
             "food_name": "Antipasto Pizza",
             "image_location": "http://drive.google.com/uc?export=view&id=1j9apYUj1R7G_rj7yIWjp5qIeHKoV_SHV",
             "average_price": 9.2,
             "original_rate": 90,
-            "ethnic_food_name": "eth2",
+            "ethnic_food_name": 102,
             "category": [
-                "cate5",
-                "cate8"
+                5,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "it4",
+        "pk": 2004,
         "fields": {
             "food_name": "Arancini (Rice Ball)",
             "image_location": "http://drive.google.com/uc?export=view&id=1pNyWHHTCCDLw3QPfAplgj49Y4PmWTJof",
             "average_price": 5.14,
             "original_rate": 91,
-            "ethnic_food_name": "eth2",
+            "ethnic_food_name": 102,
             "category": [
-                "cate1"
+                1
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "it5",
+        "pk": 2005,
         "fields": {
             "food_name": "Baccalà Fritto",
             "image_location": "http://drive.google.com/uc?export=view&id=1PE5CjdMzCwx-FMHEjNRunXBqhRfo34dS",
             "average_price": 22.84,
             "original_rate": 78,
-            "ethnic_food_name": "eth2",
+            "ethnic_food_name": 102,
             "category": [
-                "cate4",
-                "cate8"
+                4,
+                8
             ]
         }
     },
@@ -269,75 +269,75 @@
 
     {
         "model": "khubkhaoapp.food",
-        "pk": "jp1",
+        "pk": 3001,
         "fields": {
             "food_name": "Broccolini Gomaa",
             "image_location": "http://drive.google.com/uc?export=view&id=1DuctsbfOOeWTS_rKpy-PfMRZXmV5WSWf",
             "average_price": 2.63,
             "original_rate": 65,
-            "ethnic_food_name": "eth3",
+            "ethnic_food_name": 103,
             "category": [
-                "cate5",
-                "cate6"
+                5,
+                6
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "jp2",
+        "pk": 3002,
         "fields": {
             "food_name": "Champon",
             "image_location": "http://drive.google.com/uc?export=view&id=1b8I7NvL9PjtcmuRojI0ph8r71p8SsMSz",
             "average_price": 6,
             "original_rate": 85,
-            "ethnic_food_name": "eth3",
+            "ethnic_food_name": 103,
             "category": [
-                "cate2",
-                "cate7"
+                2,
+                7
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "jp3",
+        "pk": 3003,
         "fields": {
             "food_name": "Chankonabe",
             "image_location": "http://drive.google.com/uc?export=view&id=1NWwEplPFoK_fS-nuCdNoEsEeL0hBrJLY",
             "average_price": 30,
             "original_rate": 76,
-            "ethnic_food_name": "eth3",
+            "ethnic_food_name": 103,
             "category": [
-                "cate8"
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "jp4",
+        "pk": 3004,
         "fields": {
             "food_name": "Chawan Mushi",
             "image_location": "http://drive.google.com/uc?export=view&id=1uCdu7yKgzQ7xv26iDpY3Rpu4XpMW_Aqn",
             "average_price": 3,
             "original_rate": 68,
-            "ethnic_food_name": "eth3",
+            "ethnic_food_name": 103,
             "category": [
-                "cate5",
-                "cate8"
+                5,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "jp5",
+        "pk": 3005,
         "fields": {
             "food_name": "Chirashizushi",
             "image_location": "http://drive.google.com/uc?export=view&id=1f7gabl7vD_LH7_mBQi1hbrmRdhUDzK33",
             "average_price": 20,
             "original_rate": 90,
-            "ethnic_food_name": "eth3",
+            "ethnic_food_name": 103,
             "category": [
-                "cate4",
-                "cate5"
+                4,
+                5
             ]
         }
     },
@@ -346,74 +346,74 @@
 
     {
         "model": "khubkhaoapp.food",
-        "pk": "kr1",
+        "pk": 4001,
         "fields": {
             "food_name": "Andong Jjimdak",
             "image_location": "http://drive.google.com/uc?export=view&id=1jCMnOBaawKpvLPWTkUXQIuoTY2Fk9Nqb",
             "average_price": 10.63,
             "original_rate": 70,
-            "ethnic_food_name": "eth4",
+            "ethnic_food_name": 104,
             "category": [
-                "cate8"
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "kr2",
+        "pk": 4002,
         "fields": {
             "food_name": "Bibimbap",
             "image_location": "http://drive.google.com/uc?export=view&id=12TlFpqCvsTJWAQ42TEtf_4E5OP9TQnUA",
             "average_price": 7.5,
             "original_rate": 63,
-            "ethnic_food_name": "eth4",
+            "ethnic_food_name": 104,
             "category": [
-                "cate1",
-                "cate5"
+                1,
+                5
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "kr3",
+        "pk": 4003,
         "fields": {
             "food_name": "Buchujeon",
             "image_location": "http://drive.google.com/uc?export=view&id=1o1xcY-vbprOFsSlxHAamA1JunMpmVcjK",
             "average_price": 5.36,
             "original_rate": 65,
-            "ethnic_food_name": "eth4",
+            "ethnic_food_name": 104,
             "category": [
-                "cate5",
-                "cate8"
+                5,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "kr4",
+        "pk": 4004,
         "fields": {
             "food_name": "Budaejjigae",
             "image_location": "http://drive.google.com/uc?export=view&id=1MmEns81KkflKKLFIpf2LaGU6b-AHpo13",
             "average_price": 10.56,
             "original_rate": 78,
-            "ethnic_food_name": "eth4",
+            "ethnic_food_name": 104,
             "category": [
-                "cate8"
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "kr5",
+        "pk": 4005,
         "fields": {
             "food_name": "Bugeo Guk",
             "image_location": "http://drive.google.com/uc?export=view&id=1i6-cWUustOethC_-jM9dQgCQiLUDmR7q",
             "average_price": 3,
             "original_rate": 70,
-            "ethnic_food_name": "eth4",
+            "ethnic_food_name": 104,
             "category": [
-                "cate5",
-                "cate7"
+                5,
+                7
             ]
         }
     },
@@ -422,74 +422,74 @@
     
     {
         "model": "khubkhaoapp.food",
-        "pk": "mx1",
+        "pk": 5001,
         "fields": {
             "food_name": "Albóndigas",
             "image_location": "http://drive.google.com/uc?export=view&id=1SYb831-BfQhCZOIfS_0wCZfCgtZiLOwx",
             "average_price": 7,
             "original_rate": 65,
-            "ethnic_food_name": "eth5",
+            "ethnic_food_name": 105,
             "category": [
-                "cate8"
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "mx2",
+        "pk": 5002,
         "fields": {
             "food_name": "Arroz a la Tumbada",
             "image_location": "http://drive.google.com/uc?export=view&id=15nktssjVvFcmP1mHpa69xVxzLZF34PSd",
             "average_price": 9.95,
             "original_rate": 75,
-            "ethnic_food_name": "eth5",
+            "ethnic_food_name": 105,
             "category": [
-                "cate4",
-                "cate7"
+                4,
+                7
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "mx3",
+        "pk": 5003,
         "fields": {
             "food_name": "Arroz Poblano",
             "image_location": "http://drive.google.com/uc?export=view&id=1-WXXExZTE_4gpc-Udd2ZgeeRT6-SgdHT",
             "average_price": 22.8,
             "original_rate": 68,
-            "ethnic_food_name": "eth5",
+            "ethnic_food_name": 105,
             "category": [
-                "cate1",
-                "cate5"
+                1,
+                5
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "mx4",
+        "pk": 5004,
         "fields": {
             "food_name": "Arroz Rojo",
             "image_location": "http://drive.google.com/uc?export=view&id=14DOM085auZgRy6RfyelWu-gHXVPuZwgi",
             "average_price": 22.42,
             "original_rate": 70,
-            "ethnic_food_name": "eth5",
+            "ethnic_food_name": 105,
             "category": [
-                "cate1",
-                "cate5"
+                1,
+                5
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "mx5",
+        "pk": 5005,
         "fields": {
             "food_name": "Barbacoa Flautas",
             "image_location": "http://drive.google.com/uc?export=view&id=1pnUGqGSpkMXB88TkSvn35QON1C-PlAj0",
             "average_price": 7,
             "original_rate": 80,
-            "ethnic_food_name": "eth5",
+            "ethnic_food_name": 105,
             "category": [
-                "cate8"
+                8
             ]
         }
     },
@@ -498,72 +498,72 @@
 
     {
         "model": "khubkhaoapp.food",
-        "pk": "th1",
+        "pk": 6001,
         "fields": {
             "food_name": "Bami Mu Daeng",
             "image_location": "http://drive.google.com/uc?export=view&id=17Z81sBSS5og2dAEuMr0ziodHtjbBltwT",
             "average_price": 1.21,
             "original_rate": 74,
-            "ethnic_food_name": "eth6",
+            "ethnic_food_name": 106,
             "category": [
-                "cate2"
+                2
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "th2",
+        "pk": 6002,
         "fields": {
             "food_name": "Beef Soup",
             "image_location": "http://drive.google.com/uc?export=view&id=1R-roc-BnoqaG2dnd216M8eaABqHQ-QFy",
             "average_price": 1.52,
             "original_rate": 70,
-            "ethnic_food_name": "eth6",
+            "ethnic_food_name": 106,
             "category": [
-                "cate7"
+                7
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "th3",
+        "pk": 6003,
         "fields": {
             "food_name": "Boat Noodles",
             "image_location": "http://drive.google.com/uc?export=view&id=1_zjMBnnJM4unGjbsWqkgnv3dOGzhrsWo",
             "average_price": 1.06,
             "original_rate": 65,
-            "ethnic_food_name": "eth6",
+            "ethnic_food_name": 106,
             "category": [
-                "cate2"
+                2
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "th4",
+        "pk": 6004,
         "fields": {
             "food_name": "Cha Omkai",
             "image_location": "http://drive.google.com/uc?export=view&id=1Sqgs2OvcVhT59KpPkNgVabO_eOLvXIhV",
             "average_price": 1.67,
             "original_rate": 62,
-            "ethnic_food_name": "eth6",
+            "ethnic_food_name": 106,
             "category": [
-                "cate5",
-                "cate8"
+                5,
+                8
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "th5",
+        "pk": 6005,
         "fields": {
             "food_name": "Chicken Rice",
             "image_location": "http://drive.google.com/uc?export=view&id=1aYosNEYYtHbffNdVnlAb5asGNlpzErT2",
             "average_price": 1.21,
             "original_rate": 76,
-            "ethnic_food_name": "eth6",
+            "ethnic_food_name": 106,
             "category": [
-                "cate8"
+                8
             ]
         }
     },
@@ -572,72 +572,72 @@
     
     {
         "model": "khubkhaoapp.food",
-        "pk": "vn1",
+        "pk": 7001,
         "fields": {
             "food_name": "Banh Bao",
             "image_location": "http://drive.google.com/uc?export=view&id=1aFYgX2caogR_uFGI70_9KnX2AUcX-3YH",
             "average_price": 1.75,
             "original_rate": 80,
-            "ethnic_food_name": "eth7",
+            "ethnic_food_name": 107,
             "category": [
-                "cate4"
+                4
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "vn2",
+        "pk": 7002,
         "fields": {
             "food_name": "Banh Beo",
             "image_location": "http://drive.google.com/uc?export=view&id=1KcFzhahTBPQTKJ_DG3pxPjZiP5Jx11gb",
             "average_price": 1.75,
             "original_rate": 68,
-            "ethnic_food_name": "eth7",
+            "ethnic_food_name": 107,
             "category": [
-                "cate4"
+                4
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "vn3",
+        "pk": 7003,
         "fields": {
             "food_name": "Banh Bot Loc",
             "image_location": "http://drive.google.com/uc?export=view&id=1RRkVtbZOuCWN41aX2Pk0beA6t5fipcZo",
             "average_price": 2.25,
             "original_rate": 80,
-            "ethnic_food_name": "eth7",
+            "ethnic_food_name": 107,
             "category": [
-                "cate4"
+                4
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "vn4",
+        "pk": 7004,
         "fields": {
             "food_name": "Banh Cuon",
             "image_location": "http://drive.google.com/uc?export=view&id=1c8FS3He5tIAuVeAm0jAomnIX4X4tulkf",
             "average_price": 1.38,
             "original_rate": 62,
-            "ethnic_food_name": "eth7",
+            "ethnic_food_name": 107,
             "category": [
-                "cate1"
+                1
             ]
         }
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": "vn5",
+        "pk": 7005,
         "fields": {
             "food_name": "Banh Da Cua",
             "image_location": "http://drive.google.com/uc?export=view&id=1eIy97gwtbJgLkViWct7Oivjxh5a5p6bw",
             "average_price": 0.99,
             "original_rate": 68,
-            "ethnic_food_name": "eth7",
+            "ethnic_food_name": 107,
             "category": [
-                "cate2",
-                "cate4"
+                2,
+                4
             ]
         }
     }
