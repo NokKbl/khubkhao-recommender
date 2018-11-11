@@ -14,7 +14,11 @@
 
 
 ## Description
-**Khub-Khao Recommender** is a web application which will be a food recommender that based on criteria specified by the user. The intended users are everyone that can’t decided what to eat. The main features are get criteria specified by the user then analyze and show foods in the category based on the requirement, show rating of foods from our server and users able to rate foods if they want.
+**Khub-Khao Recommender** is a web application that gives food recommendations based on criteria specified by the user. The target group is users who can’t decide what to eat. The main features include:
+1. Receive and analyze criteria specified by the user
+2. Display dish types based on the criteria
+3. Display dish ratings from our servers
+4. Allow users to rate dishes
 
 
 ## Documents
@@ -50,7 +54,7 @@
 
 
 **To install and run locally**
-1. Clone project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
+1. Clone the project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
 2. Install all required software in `requirements.txt` file.
     ```bash
     $ pip install -r requirements.txt
