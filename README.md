@@ -36,49 +36,25 @@
     ```
     For more information: https://www.djangoproject.com/
 
+- **python-decouple**
+    ```bash
+    $ pip install python-decouple
+    ```
+    For more information: https://pypi.org/project/python-decouple/
+
+- **Django-Heroku** package
+    ```bash
+    $ pip install django-heroku
+    ```
+    For more information: https://pypi.org/project/django-heroku/
+
 
 **To install and run locally**
 1. Clone project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
-2. Edit `settings.py` file.
-    1. Remove/comment these lines in the file.
-        ```python
-        import django_heroku
-        from decouple import config
-        ```
-    2. Add `127.0.0.1` to `ALLOWED_HOSTS`.
-        ```python
-        ALLOWED_HOSTS = ['.herokuapp.com', '.localhost','127.0.0.1']
-        ```
-    3. Scroll down to `DATABASES` and change from using `PostgreSQL` as a database
-        ```python
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': 'khubkhao_db',
-                'USER': config('KKR_USER_DB'),
-                'PASSWORD': config('KKR_PWD_DB'),
-                'HOST': config('KKR_HOST_DB'),
-                'PORT': '5432',
-            }
-        }
-        ```
-        into `SQLite`.
-        ```python
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-                }
-        }
-        ```
-    4. Scroll to the bottom of the file then remove.
-        ```python
-        django_heroku.settings(locals())
-        ```
-        and put the code below instead.
-        ```python
-        STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-        ```
+2. Install all required software in `requirements.txt` file.
+    ```bash
+    $ pip install -r requirements.txt
+    ```
 3. Open Terminal and run commands below.
     1. Make migrations.
         ```bash
