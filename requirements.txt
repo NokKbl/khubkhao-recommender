@@ -3,4 +3,3 @@ psycopg2-binary
 python-decouple
 Django==2.1.2
 gunicorn==19.9.0
-whitenoise==4.1

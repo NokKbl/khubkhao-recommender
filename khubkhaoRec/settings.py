@@ -27,7 +27,7 @@ SECRET_KEY = 'a7qia@rzah#6fxtg7!iru40!7@ut&hfupm268_thcsd&^!_z6v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', '.localhost']
+ALLOWED_HOSTS = ['.herokuapp.com', '.localhost', '127.0.0.1']
 
 # Application definition
 
@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'khubkhaoRec.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'khubkhao_db',
-        'USER': config('KKR_USER_DB'),
-        'PASSWORD': config('KKR_PWD_DB'),
-        'HOST': config('KKR_HOST_DB'),
+        'NAME': config('KKR_NAME_DB', default='khubkhao_local_db'),
+        'USER': config('KKR_USER_DB', default='localUser'),
+        'PASSWORD': config('KKR_PWD_DB', default='local123'),
+        'HOST': config('KKR_HOST_DB', default='35.240.165.203'),
         'PORT': '5432',
     }
 }
@@ -131,4 +131,5 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Activate Django-Heroku.
 django_heroku.settings(locals())
