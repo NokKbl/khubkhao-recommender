@@ -48,13 +48,17 @@
     ```
 3. Activate the virtual environment.
     ```bash
+    # For MacOS and Linux
     $ source ./<your_environment_name>/bin/activate
+
+    # For Windows
+    $ source ./<your_environment_name>/Scripts/activate
     ```
-6. Install all required software in `requirements.txt` file.
+4. Install all required software in `requirements.txt` file.
     ```bash
     $ pip install -r requirements.txt
     ```
-6. Run the commands below to make migrations, apply migrate, add seed data and run server.
+5. Run the commands below to make migrations, apply migrate, add seed data and run server.
     1. Make migrations.
         ```bash
         $ python manage.py makemigrations
