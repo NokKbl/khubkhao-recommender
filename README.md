@@ -31,35 +31,38 @@
 ## Install and Run
 **Required software:**
 - **Python** (v.3.6.6)
-
     * The official download site: https://www.python.org/downloads/
 
-- **Django** (v.2.1.2)
+- **Virtual Environment**
     ```bash
-    $ pip install django
+    $ pip install virtualenv
     ```
-    For more information: https://www.djangoproject.com/
-
-- **python-decouple**
-    ```bash
-    $ pip install python-decouple
-    ```
-    For more information: https://pypi.org/project/python-decouple/
-
-- **Django-Heroku** package
-    ```bash
-    $ pip install django-heroku
-    ```
-    For more information: https://pypi.org/project/django-heroku/
+    For more information: https://virtualenv.pypa.io/en/latest/
 
 
 **To install and run locally**
-1. Clone the project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
-2. Install all required software in `requirements.txt` file.
+1. Open **Terminal** and clone the project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
+    ```bash
+    $ git clone https://github.com/NokKbl/khubkhao-recommender.git
+    ```
+2. Change your current working directory into `khubkhao-recommender` folder and create a new virtual environment.
+    ```bash
+    $ cd khubkhao-recommender
+    $ virtualenv <your_environment_name>
+    ```
+3. Activate the virtual environment.
+    ```bash
+    # For MacOS and Linux
+    $ source ./<your_environment_name>/bin/activate
+
+    # For Windows
+    $ source ./<your_environment_name>/Scripts/activate
+    ```
+4. Install all required software in `requirements.txt` file.
     ```bash
     $ pip install -r requirements.txt
     ```
-3. Open Terminal and run commands below.
+5. Run the commands below to make migrations, apply migrate, add seed data and run server.
     1. Make migrations.
         ```bash
         $ python manage.py makemigrations
