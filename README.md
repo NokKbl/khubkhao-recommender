@@ -25,7 +25,7 @@
 
 
 ## Installation
-**1. Install Python and virtualenv**
+**1. Install Python and virtualenv.**
 - **Python** (v.3.6.6 or newer)
     * The official download site: https://www.python.org/downloads/
 
@@ -36,7 +36,7 @@
     For more information: https://virtualenv.pypa.io/en/latest/
 
 
-**2. Install project and configuration**
+**2. Install project and configuration.**
 1. Open **Terminal** and clone the project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
     ```bash
     $ git clone https://github.com/NokKbl/khubkhao-recommender.git
@@ -58,31 +58,31 @@
     ```bash
     (env)$ pip install -r requirements.txt
     ```
-5. Run the commands below to make migrations, apply migrate, add seed data and run server.
-    1. Make migrations.
-        ```bash
-        (env)$ python manage.py makemigrations
-        ```
-    2. Apply the migrations.
-        ```bash
-        (env)$ python manage.py migrate
-        ```
-    3. Add seed data to database.
-        ```bash
-        (env)$ python manage.py loaddata seed.json
-        ```
-    4. Run server at [127.0.0.1:8000](http://127.0.0.1:8000).
-        ```bash
-        (env)$ python manage.py runserver
-        ```
-    * If you want to login into admin site at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin), you can do it by create superuser.
-        ```bash
-        (env)$ python manage.py createsuperuser
-        ```
-6. When done, exit virtualenv.
+**3. Run the following commands to make migrations, apply migrate, add seed data and run server.**
+1. Make migrations.
     ```bash
-    (env)$ deactivate
+    (env)$ python manage.py makemigrations
     ```
+2. Apply the migrations.
+    ```bash
+    (env)$ python manage.py migrate
+    ```
+3. Add seed data to database.
+    ```bash
+    (env)$ python manage.py loaddata seed.json
+    ```
+4. Run server at [127.0.0.1:8000](http://127.0.0.1:8000).
+    ```bash
+    (env)$ python manage.py runserver
+    ```
+* If you want to login into admin site at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin), you can do it by create superuser.
+    ```bash
+    (env)$ python manage.py createsuperuser
+    ```
+**4. When done, exit virtualenv.**
+```bash
+(env)$ deactivate
+```
 
 ## Team members
 - [**Kornphon Noiprasert**](https://github.com/Driveiei) (ID: 6010545021)
