@@ -24,9 +24,9 @@
 - **Others**: [Our GitHub Wiki](https://github.com/NokKbl/khubkhao-recommender/wiki)
 
 
-## Install and Run
-**Required software:**
-- **Python** (v.3.6.6)
+## Installation
+**1. Install Python and virtualenv**
+- **Python** (v.3.6.6 or newer)
     * The official download site: https://www.python.org/downloads/
 
 - **Virtual Environment**
@@ -36,7 +36,7 @@
     For more information: https://virtualenv.pypa.io/en/latest/
 
 
-**To install and run locally**
+**2. Install project and configuration**
 1. Open **Terminal** and clone the project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
     ```bash
     $ git clone https://github.com/NokKbl/khubkhao-recommender.git
@@ -44,42 +44,45 @@
 2. Change your current working directory into `khubkhao-recommender` folder and create a new virtual environment.
     ```bash
     $ cd khubkhao-recommender
-    $ virtualenv <your_environment_name>
+    $ virtualenv env
     ```
 3. Activate the virtual environment.
     ```bash
     # For MacOS and Linux
-    $ source ./<your_environment_name>/bin/activate
+    $ source ./env/bin/activate
 
     # For Windows
-    $ source ./<your_environment_name>/Scripts/activate
+    $ .\env\Scripts\activate
     ```
 4. Install all required software in `requirements.txt` file.
     ```bash
-    $ pip install -r requirements.txt
+    (env)$ pip install -r requirements.txt
     ```
 5. Run the commands below to make migrations, apply migrate, add seed data and run server.
     1. Make migrations.
         ```bash
-        $ python manage.py makemigrations
+        (env)$ python manage.py makemigrations
         ```
     2. Apply the migrations.
         ```bash
-        $ python manage.py migrate
+        (env)$ python manage.py migrate
         ```
     3. Add seed data to database.
         ```bash
-        $ python manage.py loaddata seed.json
+        (env)$ python manage.py loaddata seed.json
         ```
-    4. Run server at [127.0.0.1:8000](http://q1127.0.0.1:8000).
+    4. Run server at [127.0.0.1:8000](http://127.0.0.1:8000).
         ```bash
-        $ python manage.py runserver
+        (env)$ python manage.py runserver
         ```
     * If you want to login into admin site at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin), you can do it by create superuser.
         ```bash
-        $ python manage.py createsuperuser
+        (env)$ python manage.py createsuperuser
         ```
-
+6. When done, exit virtualenv.
+    ```bash
+    (env)$ deactivate
+    ```
 
 ## Team members
 - [**Kornphon Noiprasert**](https://github.com/Driveiei) (ID: 6010545021)
