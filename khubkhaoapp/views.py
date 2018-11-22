@@ -22,25 +22,22 @@ class IndexView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
-        # food_list = Food.objects.all().order_by('original_rate'+'user_rate').reverse()
-        food_list = Food.objects.all().order_by(
-            'original_rate').reverse()[:25]  # Menu 1-25
-        #Change database THAVORN
+        
+        # food_list = Food.objects.all().order_by(
+        #     'original_rate').reverse()[:25]  # Menu 1-25
+        
+        unsorted_results = Food.objects.all()
+        food_list = sorted(unsorted_results, key = lambda food: food.get_total_rate(), reverse=True)[:25]
+        
+        # ======================== MAI THAVORN
         # for food in food_list:
-        #     food.set_original_rate(-100)
-        #     food.save()
-        #     # user = food.get_user_rate
-        #     # orginal = food.get_original_rate
-        for food in food_list:
-            food.set_user_rate(100)
-            # food.save()
-            # user = food.get_user_rate
-            # orginal = food.get_original_rate
+        #     food.set_user_rate(100)
+        # =======================Save THAVORN
+        # food.save()
 
         # food_list = Food.objects.all().order_by('original_rate').reverse()[:10:2] #Menu 1 3 5 7 9
         # food_list = Food.objects.filter(original_rate__gt=F('user_rate')+78)
         # Company.objects.filter(num_employees__gt=F('num_chairs') * 2)
-        # food_list = Food.objects.all()
         category_list = Category.objects.all()
         ethnic_list = EthnicFood.objects.all()
         context = {
@@ -65,6 +62,8 @@ def IndexResultView(request):
     else:
         food_list = Food.objects.filter(ethnic_food_name__in=selected_ethnic).filter(
             category__in=selected_category).distinct()
+    unsorted_results = food_list
+    food_list = sorted(unsorted_results, key = lambda food: food.get_total_rate(), reverse=True)[:25]
     category_list = Category.objects.all()
     ethnic_list = EthnicFood.objects.all()
     context = {
