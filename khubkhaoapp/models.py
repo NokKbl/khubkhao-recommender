@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class EthnicFood(models.Model):
     ethnic_food_name = models.CharField(
@@ -69,6 +69,10 @@ class Food(models.Model):
         verbose_name='Original Rate',
         blank=True,
         null=True,
+        validators=[
+            MaxValueValidator(100),
+            MinValueValidator(0)
+        ],
     )
 
     user_rate = models.DecimalField(
@@ -78,6 +82,14 @@ class Food(models.Model):
         verbose_name='User Rate',
         blank=True,
         null=True,
+    )
+
+    user_count = models.PositiveIntegerField(
+        default=0,
+        blank=True,
+        null=True,
+        verbose_name='User Count',
+        help_text='Must be zero', 
     )
 
     ethnic_food_name = models.ForeignKey(
@@ -105,11 +117,22 @@ class Food(models.Model):
     def set_user_rate(self,value):
         self.user_rate += value
 
+    def get_total_rate(self):
+        float_original = float(self.original_rate)*0.8
+        self.original_rate = float_original
+        float_user = float(self.user_rate)*0.2
+        total_rate = float("{0:.2f}".format(float_user+float_original))
+        self.original_rate = total_rate
+        return total_rate
+
     def get_original_rate(self):
         return self.original_rate
 
     def get_user_rate(self):
         return self.user_rate
+
+    def get_user_count(self):
+        return self.user_count
 
     # def change_user_rate(self, increase):
     #     if self.user_rate+increase > 100 :
@@ -117,12 +140,12 @@ class Food(models.Model):
 
     #     return self.user_rate+increase
 
-    def get_total_rate(self):
-        float_price = float(self.original_rate)*0.8
-        float_user = float(self.user_rate)*0.2
-        float_price = float("{0:.2f}".format(float_price))
-        float_user = float("{0:.2f}".format(float_user))
-        return float_price+float_user
+    # def get_total_rate(self):
+    #     float_price = float(self.original_rate)*0.8
+    #     float_user = float(self.user_rate)*0.2
+    #     float_price = float("{0:.2f}".format(float_price))
+    #     float_user = float("{0:.2f}".format(float_user))
+    #     return float_price+float_user
 
     # def get_db_prep_value(self, value, connection, prepared=False):
     #     value = super().get_db_prep_value(value, connection, prepared)
