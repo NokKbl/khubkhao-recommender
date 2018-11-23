@@ -82,6 +82,7 @@ class Food(models.Model):
         verbose_name='User Rate',
         blank=True,
         null=True,
+        validators=[MinValueValidator(0)],
     )
 
     user_count = models.PositiveIntegerField(
@@ -114,13 +115,21 @@ class Food(models.Model):
     def get_image_location(self):
         return self.image_location
 
-    def set_user_rate(self,value):
-        self.user_rate += value
+    def add_user_count(self):
+        self.user_count = float(self.user_count)+1
 
-    def get_total_rate(self):
+    def set_user_rate(self,value):
+        self.user_rate = float(self.user_rate)+value
+
+    def compute_total_rate(self):
         float_original = float(self.original_rate)*0.8
         self.original_rate = float_original
         float_user = float(self.user_rate)*0.2
+
+        count = float(self.user_count)
+        if(count != 0):
+            float_user = float_user/count
+
         total_rate = float("{0:.2f}".format(float_user+float_original))
         self.original_rate = total_rate
         return total_rate

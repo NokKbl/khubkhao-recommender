@@ -39,7 +39,8 @@
                                 <div class="col">
                                     <div class="form-group form-check">
                                         {% for ethnic in ethnic_list %}
-                                        <input type="checkbox" class="form-check-input" value={{ethnic.pk}} name="ethnic_name" id="ethnic{{ forloop.counter }}">
+                                        <input type="checkbox" class="form-check-input" value={{ethnic.pk}} name="ethnic_name"
+                                            id="ethnic{{ forloop.counter }}">
                                         <label class="form-check-label" for="ethnic{{ forloop.counter }}">{{ ethnic }}</label>
                                         <br>
                                         {% endfor %}
@@ -55,7 +56,8 @@
                                 <div class="col">
                                     <div class="form-group form-check">
                                         {% for category in category_list %}
-                                        <input type="checkbox" class="form-check-input" value={{category.pk}} name="category_name" id="category{{ forloop.counter }}">
+                                        <input type="checkbox" class="form-check-input" value={{category.pk}} name="category_name"
+                                            id="category{{ forloop.counter }}">
                                         <label class="form-check-label" for="category{{ forloop.counter }}">{{ category }}</label>
                                         <br>
                                         {% endfor %}
@@ -74,31 +76,59 @@
                     <br>
                     <h1>Generated Result!</h1>
                     <br>
-                    {% for food in food_list %}
-                    <div class="row" style="padding: 20px;">
-                        <div class="col-4" style="text-align: right;">
-                            <img src="{{ food.get_image_location }}" width="233px" height="175px" class="border border-warning rounded">
+                    <form action="{% url 'khubkhaoapp:vote' %}" method="POST">
+                        {% csrf_token %}
+                        {% for food in food_list %}
+                        <div class="row" style="padding: 20px;">
+                            <div class="col-4" style="text-align: right;">
+                                <img src="{{ food.get_image_location }}" width="233px" height="175px" class="border border-warning rounded">
+                            </div>
+                            <div class="col-8" style="text-align: left;">
+                                <h3>{{ food }}</h3>
+                                <ul>
+                                    <li>
+                                        <h5>Average Price: {{ food.get_average_price }}</h5>
+                                    </li>
+                                    <li>
+                                        <h5>Type: {{ food.get_ethnic_food_name }} </h5>
+                                    </li>
+                                    <li>
+                                        <h5>Categories: {% for cate in food.get_category.all %} {{ cate }} {% endfor %}</h5>
+                                    </li>
+                                    <li>
+                                        <h5>Rate point: {{ food.get_original_rate }} /100</h5>
+                                    </li>                                    
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},1 id="vote1" type="submit">1</button>
+                                        <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},2 id="vote2" type="submit">2</button>
+                                        <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},3 id="vote3" type="submit">3</button>
+                                        <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},4 id="vote4" type="submit">4</button>
+                                        <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},5 id="vote5" type="submit">5</button>
+                                    </div>
+
+                                    <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary">
+                                            <input type="checkbox" checked autocomplete="off"> 1 Star
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="rate_star" value={{food.pk}} id="option2" autocomplete="off"> 2 Stars
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="rate_star" value={{food.pk}} id="option3" autocomplete="off"> 3 Stars
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="rate_star" value={{food.pk}} id="option4" autocomplete="off"> 4 Stars
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="rate_star" value={{food.pk}} id="option5" autocomplete="off"> 5 Stars
+                                        </label>
+                                    </div> -->
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-8" style="text-align: left;">
-                            <h3>{{ food }}</h3>
-                            <ul>
-                                <li>
-                                    <h5>Average Price: {{ food.get_average_price }}</h5>
-                                </li>
-                                <li>
-                                    <h5>Type: {{ food.get_ethnic_food_name }} </h5>
-                                </li>
-                                <li>
-                                    <h5>Categories: {% for cate in food.get_category.all %} {{ cate }} {% endfor %}</h5>
-                                </li>
-                                <li>
-                                    <h5>Rate point: {{ food.get_original_rate }} /100</h5>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <br>
-                    {% endfor %}
+                        <br>
+                        {% endfor %}
+                    </form>
                 </div>
             </div>
         </div>
