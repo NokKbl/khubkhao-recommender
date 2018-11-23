@@ -77,7 +77,7 @@ class Food(models.Model):
 
     user_rate = models.DecimalField(
         default=0,
-        max_digits=5,
+        max_digits=8,
         decimal_places=2,
         verbose_name='User Rate',
         blank=True,
