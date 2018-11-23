@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from khubkhaoapp.models import Category, EthnicFood, Food
 from django.db.models import Q
+from enum import Enum
 
 class IndexView(TemplateView):
     template_name = 'khubkhaoapp/index.html'
@@ -39,6 +40,25 @@ class IndexView(TemplateView):
         }
         return context
 
+class Rate(Enum):
+    ONE = 20
+    TWO = 40
+    THREE = 60
+    FOUR = 80
+    FIVE = 100
+
+def vote_value(raw_number):
+    if(raw_number == "ONE") :
+        return Rate.ONE
+    elif(raw_number == "TWO") :
+        return Rate.TWO
+    elif(raw_number == "THREE") :
+        return Rate.THREE
+    elif(raw_number == "FOUR") :
+        return Rate.FOUR
+    else :
+        return Rate.FIVE
+
 def filter_ethnic(ethnic):
     return EthnicFood.objects.filter(id__in=ethnic)
 
@@ -56,7 +76,7 @@ def filter_food(selected_ethnic,selected_category):
 
 def sort_food(unsort_food):
     return sorted(unsort_food, key = lambda food: food.compute_total_rate(), reverse=True)[:25]
-            
+
 def IndexResultView(request):
     if request.method == "POST":
         my_ethnic = request.POST.getlist('ethnic_name')
@@ -74,16 +94,20 @@ def IndexResultView(request):
     }
     return render(request, 'khubkhaoapp/index.html', context)
 
+def vote_food(pk_food,vote):
+    vote_scores = vote_value(vote).value
+    food = Food.objects.get(pk=pk_food)
+    food.add_user_count()
+    food.set_user_rate(vote_scores)
+    print(vote_scores)
+    food.save()
+
 def IndexVoteView(request):
     if request.method == "POST":
         my_vote = request.POST.get('rate_star')
     pk_and_vote = my_vote.split(',')
-    pk_and_vote[1] = float(pk_and_vote[1])*20
-    food = Food.objects.get(pk=pk_and_vote[0])
-    food.set_user_rate(pk_and_vote[1])
-    food.add_user_count()
-    food.save()
-
+    vote_food(pk_and_vote[0],pk_and_vote[1])
+    
     food_list = Food.objects.all()
     food_list = sort_food(food_list)
     category_list = Category.objects.all()
