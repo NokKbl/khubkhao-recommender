@@ -70,31 +70,47 @@
             <br>
             <h1>Generated Result!</h1>
             <br>
-            {% for food in food_list %}
-            <div class="row" style="padding: 20px;">
-                <div class="col-4" style="text-align: right;">
-                    <img src="{{ food.get_image_location }}" width="233px" height="175px" class="border border-warning rounded">
+            <form action="{% url 'khubkhaoapp:vote' %}" method="POST">
+                {% csrf_token %}
+                {% for food in food_list %}
+                <div class="row" style="padding: 20px;">
+                    <div class="col-4" style="text-align: right;">
+                        <img src="{{ food.get_image_location }}" width="233px" height="175px" class="border border-warning rounded">
+                    </div>
+                    <div class="col-8" style="text-align: left;">
+                        <h3>{{ food }}</h3>
+                        <ul>
+                            <li>
+                                <h5>Average Price: ${{ food.get_average_price }}</h5>
+                            </li>
+                            <li>
+                                <h5>Type: {{ food.get_ethnic_food_name }} </h5>
+                            </li>
+                            <li>
+                                <h5>Categories: {% for cate in food.get_category.all %} <span class="badge badge-secondary">{{ cate }}</span> {% endfor %}</h5>
+                            </li>
+                            <li>
+                                <h5>Rate point: {{ food.get_original_rate }} /100</h5>
+                            </li>
+                            {% if user.is_authenticated and not user.is_anonymous %}
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <li>
+                                        <h5>Vote: 
+                                            <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},ONE id="vote1" type="submit">1</button>
+                                            <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},TWO id="vote2" type="submit">2</button>
+                                            <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},THREE id="vote3" type="submit">3</button>
+                                            <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},FOUR id="vote4" type="submit">4</button>
+                                            <button class="btn btn-secondary active" name="rate_star" value={{food.pk}},FIVE id="vote5" type="submit">5</button>
+                                        </h5>
+                                    </li>
+                                </div>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-8" style="text-align: left;">
-                    <h3>{{ food }}</h3>
-                    <ul>
-                        <li>
-                            <h5>Average Price: ${{ food.get_average_price }}</h5>
-                        </li>
-                        <li>
-                            <h5>Type: {{ food.get_ethnic_food_name }} </h5>
-                        </li>
-                        <li>
-                            <h5>Categories: {% for cate in food.get_category.all %} <span class="badge badge-secondary">{{ cate }}</span> {% endfor %}</h5>
-                        </li>
-                        <li>
-                            <h5>Rate point: {{ food.get_original_rate }} /100</h5>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <br>
-            {% endfor %}
+                <br>
+                {% endfor %}
+            </form>
         </div>
     </div>
 </div>
