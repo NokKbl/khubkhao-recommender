@@ -74,7 +74,7 @@ class FoodModelTest(TestCase):
         with self.assertRaises(IntegrityError):
             food =  Food.objects.create(original_rate = -1)
 
-    def test_integer_original_rate_morn_then_maximum(self):
+    def test_integer_original_rate_more_then_maximum(self):
         ''' original_rate can't be more then maximum(which is 100)'''
         with self.assertRaises(IntegrityError):
             food =  Food.objects.create(original_rate = 200)
