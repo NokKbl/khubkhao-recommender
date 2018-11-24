@@ -14,4 +14,3 @@ class IndexPageTest(TestCase):
         response = self.client.get(reverse('khubkhaoapp:index'))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'khubkhaoapp/index.html')
-        self.assertContains(response, '<h1>Generated Result!</h1>')
