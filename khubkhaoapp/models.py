@@ -161,9 +161,12 @@ class Food(models.Model):
     def get_category(self):
         return self.category
 
-    def set_check_vote(self):
+    def set_check_false(self):
         self.check_vote = False
-
+    
+    def set_check_true(self):
+        self.check_vote = True
+    
     def get_check_vote(self):
         return self.check_vote
 

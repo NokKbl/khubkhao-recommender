@@ -49,8 +49,11 @@ def check_vote(request,food_set):
     for food in food_set:
         array = food.get_user_pk().split(',')
         if(str(request.user.pk) in array):
-            food.set_check_vote()
-            food.save()
+            food.set_check_false()
+        else:
+            food.set_check_true()
+        food.save()
+
 
 def vote_food(request,pk_food,vote):
     vote_scores = vote_value(vote).value
