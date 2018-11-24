@@ -4,6 +4,11 @@ from django.http import HttpResponse
 from khubkhaoapp.models import Category,EthnicFood, Food
 from django.db.models import Q
 
+
+class HomeView(TemplateView):
+    template_name = 'registration/login.html'
+
+
 class IndexView(TemplateView):
     template_name = 'khubkhaoapp/index.html'
     def get_context_data(self,*args,**kwargs):

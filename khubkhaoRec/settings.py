@@ -27,12 +27,13 @@ SECRET_KEY = 'a7qia@rzah#6fxtg7!iru40!7@ut&hfupm268_thcsd&^!_z6v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', '.localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com', '.localhost']
 
 # Application definition
 
 INSTALLED_APPS = [
     'khubkhaoapp',
+    'social_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'khubkhaoRec.urls'
@@ -66,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -78,15 +82,36 @@ WSGI_APPLICATION = 'khubkhaoRec.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('KKR_NAME_DB', default='khubkhao_local_db'),
-        'USER': config('KKR_USER_DB', default='localUser'),
-        'PASSWORD': config('KKR_PWD_DB', default='local123'),
-        'HOST': config('KKR_HOST_DB', default='35.240.165.203'),
-        'PORT': '5432',
+        'ENGINE': config('KKR_ENGINE_DB', default='django.db.backends.sqlite3'),
+        'NAME': config('KKR_NAME_DB', default=os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': config('KKR_USER_DB', default=''),
+        'PASSWORD': config('KKR_PWD_DB', default=''),
+        'HOST': config('KKR_HOST_DB', default=''),
+        'PORT': config('KKR_PORT_DB', default=''),
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'khubkhaoapp:index'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_TWITTER_KEY = config('SOCIAL_AUTH_TWITTER_KEY', default='ruai0LJupcXu3ZHXYzZk44Ooe')
+SOCIAL_AUTH_TWITTER_SECRET = config('SOCIAL_AUTH_TWITTER_SECRET', default='5uSRvCOgfpznOQB5ftC9GNavvi3RIKmDH67C7sNmUGU5l4dpXI')
+SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY', default='2148036335248584')
+SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET', default='c51b549e81d6462193cfc03802057008')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='501242684164-o4jbn1j2dlfokbap3f152ef9pujbovti.apps.googleusercontent.com')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='dLI5E2yQQP37_hu48DfmGYO0')
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/khubkhao/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/khubkhao/'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
