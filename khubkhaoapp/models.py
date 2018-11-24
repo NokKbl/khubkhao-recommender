@@ -69,6 +69,7 @@ class Food(models.Model):
             MaxValueValidator(100),
             MinValueValidator(0)
         ],
+        help_text='Must be 0-100', 
     )
 
     user_rate = models.DecimalField(
@@ -101,6 +102,15 @@ class Food(models.Model):
         verbose_name='Category',
         blank=False
     )
+
+    pk_voted = models.TextField(
+        verbose_name='Primary key of user',
+        blank=True,
+    )
+
+    check_vote = models.BooleanField(
+        default=True
+    )
     
     def __str__(self):
         return self.food_name
@@ -113,6 +123,12 @@ class Food(models.Model):
     
     def add_user_count(self):
         self.user_count = float(self.user_count)+1
+
+    def add_user_pk(self,primary_key):
+        self.pk_voted = self.pk_voted + str(primary_key) + ","
+
+    def get_user_pk(self):
+        return self.pk_voted
 
     def set_user_rate(self,value):
         self.user_rate = float(self.user_rate)+value
@@ -144,6 +160,12 @@ class Food(models.Model):
     
     def get_category(self):
         return self.category
+
+    def set_check_vote(self):
+        self.check_vote = False
+
+    def get_check_vote(self):
+        return self.check_vote
 
     class Meta:
          verbose_name = "Food"

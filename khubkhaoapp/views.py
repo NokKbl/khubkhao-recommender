@@ -8,7 +8,6 @@ from enum import Enum
 class HomeView(TemplateView):
     template_name = 'registration/login.html'
 
-
 class Rate(Enum):
     ONE = 20
     TWO = 40
@@ -28,23 +27,6 @@ def vote_value(raw_number):
     else :
         return Rate.FIVE
 
-
-class IndexView(TemplateView):
-    template_name = 'khubkhaoapp/index.html'
-    def get_context_data(self,*args,**kwargs):
-        context = super(IndexView,self).get_context_data(*args, **kwargs)
-        unsorted_results = Food.objects.all()
-        food_list = sorted(unsorted_results, key = lambda food: food.compute_total_rate(), reverse=True)[:25]
-        category_list = Category.objects.all()
-        ethnic_list = EthnicFood.objects.all()
-        context = {
-            'food_list': food_list,
-            'category_list': category_list,
-            'ethnic_list': ethnic_list,
-        }
-        return context
-
-
 def filter_ethnic(ethnic):
     return EthnicFood.objects.filter(id__in=ethnic)
 
@@ -63,6 +45,35 @@ def filter_food(selected_ethnic,selected_category):
 def sort_food(unsort_food):
     return sorted(unsort_food, key = lambda food: food.compute_total_rate(), reverse=True)[:25]
 
+def check_vote(request,food_set):
+    for food in food_set:
+        array = food.get_user_pk().split(',')
+        if(str(request.user.pk) in array):
+            food.set_check_vote()
+            food.save()
+
+def vote_food(request,pk_food,vote):
+    vote_scores = vote_value(vote).value
+    food = Food.objects.get(pk=pk_food)
+    food.add_user_count()
+    food.set_user_rate(vote_scores)
+    food.add_user_pk(request.user.pk)
+    food.save()
+
+def IndexView(request):
+    template_name = 'khubkhaoapp/index.html'
+    unsorted_results = Food.objects.all()
+    check_vote(request,unsorted_results)
+    food_list = sort_food(unsorted_results)
+    category_list = Category.objects.all()
+    ethnic_list = EthnicFood.objects.all()
+    context = {
+        'food_list': food_list,
+        'category_list': category_list,
+        'ethnic_list': ethnic_list,
+    }
+    return render(request, template_name, context)
+    
 def IndexResultView(request):
     if request.method == "POST":
         my_ethnic = request.POST.getlist('ethnic_name')
@@ -70,6 +81,7 @@ def IndexResultView(request):
     selected_ethnic = filter_ethnic(my_ethnic)
     selected_category = filter_category(my_category)
     food_list = filter_food(selected_ethnic,selected_category)
+    check_vote(request,food_list)
     food_list = sort_food(food_list)
     category_list = Category.objects.all()
     ethnic_list = EthnicFood.objects.all()
@@ -80,21 +92,13 @@ def IndexResultView(request):
     }
     return render(request, 'khubkhaoapp/index.html', context)
 
-def vote_food(pk_food,vote):
-    vote_scores = vote_value(vote).value
-    food = Food.objects.get(pk=pk_food)
-    food.add_user_count()
-    food.set_user_rate(vote_scores)
-    print(vote_scores)
-    food.save()
-
 def IndexVoteView(request):
-    if request.method == "POST":
+    if request.method == "POST" and request.user.is_authenticated and not request.user.is_anonymous:
         my_vote = request.POST.get('rate_star')
-    pk_and_vote = my_vote.split(',')
-    vote_food(pk_and_vote[0],pk_and_vote[1])
-    
+        pk_and_vote = my_vote.split(',')
+        vote_food(request,pk_and_vote[0],pk_and_vote[1])    
     food_list = Food.objects.all()
+    check_vote(request,food_list)
     food_list = sort_food(food_list)
     category_list = Category.objects.all()
     ethnic_list = EthnicFood.objects.all()
