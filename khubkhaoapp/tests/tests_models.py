@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.db import IntegrityError
 from khubkhaoapp.models import Category, EthnicFood, Food
 
 
@@ -36,8 +35,10 @@ class FoodModelTest(TestCase):
         Food.objects.create(food_name = "Baozi",
             image_location = "http://drive.google.com/uc?export=view&id=1zbH52fRGRqMGRMSnEi2BGTU4D--Gkoy5",
             average_price = 3.1,
-            original_rate = 84,
-            user_rate = 0,
+            original_rate = 80,
+            user_rate = 40,
+            pk_voted = '1,6,',
+            user_count = 2,
             ethnic_food_name = EthnicFood.objects.create(ethnic_food_name="Thai Food"),
             )
 
@@ -45,9 +46,11 @@ class FoodModelTest(TestCase):
             image_location = "http://drive.google.com/uc?export=view&id=1PE5CjdMzCwx-FMHEjNRunXBqhRfo34dS",
             average_price = 22.84,
             original_rate = 78,
-            user_rate = 40,
+            user_rate = 0,
             ethnic_food_name = EthnicFood.objects.create(ethnic_food_name="Korean food"),
             )
+
+        
 
     def test_create_food(self):
         '''Check EthnicFood that have been setup is create'''
@@ -67,30 +70,15 @@ class FoodModelTest(TestCase):
 
     def test_integer_of_original_rate_representation(self):
         ''' DecimalField of original_rate Food models have same integer that create in setup '''
-        self.assertTrue(Food.objects.filter(original_rate=84))
-
-    def test_integer_original_rate_negative(self):
-        ''' original_rate can't be negative'''
-        with self.assertRaises(IntegrityError):
-            food =  Food.objects.create(original_rate = -1)
-
-    def test_integer_original_rate_more_then_maximum(self):
-        ''' original_rate can't be more then maximum(which is 100)'''
-        with self.assertRaises(IntegrityError):
-            food =  Food.objects.create(original_rate = 200)
+        self.assertTrue(Food.objects.filter(original_rate=80))
 
     def test_integer_of_user_rate_representation(self):
         ''' DecimalField of user_rate Food models have same integer that create in setup '''
         self.assertTrue(Food.objects.filter(user_rate=40))
 
-    def test_integer_user_rate_negative(self):
-        ''' user_rate can't be negative '''
-        with self.assertRaises(IntegrityError):
-            food =  Food.objects.create(user_rate = -1)
-
     def test_objects_of_ethnic_food_name_representation(self):
         ''' ForeignKey of ethnic_food_name in Food models have same objects that create in setup '''
-        ethnic_food = EthnicFood.objects.all()[:1].get()
+        ethnic_food = EthnicFood.objects.all().first()
         self.assertTrue(Food.objects.filter(ethnic_food_name=ethnic_food))
 
     def test_ManyToMany_of_category_representation(self):
@@ -99,10 +87,30 @@ class FoodModelTest(TestCase):
         category1.save()
         category2 = Category(type_name='Healthy')
         category2.save()
-        food = Food.objects.all()[:1].get()
+        food = Food.objects.all().first()
         food.category.add(category1)
         food.category.add(category2)
         self.assertEqual(list(food.category.all()), [category1, category2])
+
+    def test_add_user_pk_method(self):
+        ''' Food name Baozi have 2 pk_vote which is 1,6 then add pk=3. So it equal to 1,6,3, '''
+        food = Food.objects.all().first()
+        food.add_user_pk('3')
+        self.assertEqual(food.get_user_pk(),'1,6,3,')
+    
+    def test_add_user_count_method(self):
+        ''' Food name Baozi have 2 people vote for this food then it have people add one more. So it increst to 3'''
+        food = Food.objects.all().first()
+        food.add_user_count()
+        self.assertEqual(food.get_user_count(),3)
+
+    def test_compute_total_rate(self):
+        ''' Food name Baccalà Fritto have original rate 78 user rate is set to 80 so total rate is 78.4  '''
+        food = Food.objects.all().last()
+        food.set_user_rate(80)
+        rate = food.compute_total_rate()
+        self.assertEqual(rate,78.4)
+
 
 class FixturesTest(TestCase):
     fixtures = ['seed.json']
@@ -110,19 +118,18 @@ class FixturesTest(TestCase):
     def test_pk_category_representation(self):
         ''' seed can be sending data of Category  '''
         category = Category.objects.get(pk=5)
-        self.assertEqual(str(category),'Healthy food')
+        self.assertTrue(Category.objects.filter(type_name='Healthy food'))
 
     def test_pk_ethnic_representation(self):
         ''' seed can be sending data of EthnicFood '''
         ethnic = EthnicFood.objects.get(pk=101)
-        self.assertEqual(str(ethnic),'Chinese food')
+        self.assertTrue(EthnicFood.objects.filter(ethnic_food_name='Chinese food'))
 
     def test_pk_food_all_componet_representation(self):
         ''' seed can be sending data of Food '''
         food = Food.objects.get(pk=1001)
-        self.assertEqual(str(food),'Bak Kut Teh')
-        self.assertEqual(food.get_image_location(),'http://drive.google.com/uc?export=view&id=1vWtl_ugPgkcZnEgVm7NcPGV-5EUl9kJw')
-        self.assertEqual(food.get_average_price(),6.5)
-        self.assertEqual(food.get_original_rate(),80)
-        self.assertEqual(food.get_ethnic_food_name(),EthnicFood.objects.get(pk=101))
         self.assertEqual(list(food.get_category().all()),[Category.objects.get(pk=5),Category.objects.get(pk=7),Category.objects.get(pk=8)])
+        self.assertTrue(Food.objects.filter(food_name='Bak Kut Teh'))
+        self.assertTrue(Food.objects.filter(image_location='http://drive.google.com/uc?export=view&id=1vWtl_ugPgkcZnEgVm7NcPGV-5EUl9kJw'))
+        self.assertTrue(Food.objects.filter(average_price='6.5'))
+        self.assertTrue(Food.objects.filter(original_rate='80'))
