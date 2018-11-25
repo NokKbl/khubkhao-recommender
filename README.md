@@ -86,10 +86,15 @@ Kornphon Noiprasert | [**Driveiei**](https://github.com/Driveiei) | Developer
     ```bash
     (env)$ python manage.py runserver
     ```
-* If you want to login into admin site at [localhost:8000/admin](http://localhost:8000/admin), you can do it by create superuser.
-    ```bash
-    (env)$ python manage.py createsuperuser
-    ```
+**Social account for Tester** (include Facebook, Twitter and Google Plus)
+- **Email:** devtester018@gmail.com
+- **Password:** DevTester2018
+
+**If you want to login into admin site at [localhost:8000/admin](http://localhost:8000/admin), you can do it by create superuser.**
+```bash
+(env)$ python manage.py createsuperuser
+```
+
 **When done, exit virtualenv.**
 ```bash
 (env)$ deactivate
