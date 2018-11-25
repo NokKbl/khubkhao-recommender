@@ -32,6 +32,7 @@ before_script:
   - sleep 3 
   - python manage.py makemigrations
   - python manage.py migrate
+  - python manage.py loaddata seed.json
   - python manage.py runserver localhost:8000 &
 
 script:
