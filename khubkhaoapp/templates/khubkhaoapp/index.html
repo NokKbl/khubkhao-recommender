@@ -82,19 +82,19 @@
                         {% endif %}
                     </div>
                     <div class="col-8" style="text-align: left;">
-                        <h3><b>{{ food }}</b></h3>
+                        <h3><b id="Food_name">{{ food }}</b></h3>
                         <ul>
                             <li>
-                                <h5><b>Average Price:</b> ${{ food.get_average_price }}</h5>
+                                <h5><b id="Price">Average Price:</b> ${{ food.get_average_price }}</h5>
                             </li>
                             <li>
-                                <h5><b>Type:</b> {{ food.get_ethnic_food_name }} </h5>
+                                <h5><b id="Type">Type:</b> {{ food.get_ethnic_food_name }} </h5>
                             </li>
                             <li>
-                                <h5><b>Categories:</b> {% for cate in food.get_category.all %} <span class="badge badge-dark">#{{ cate }}</span> {% endfor %}</h5>
+                                <h5><b id="Categories">Categories:</b> {% for cate in food.get_category.all %} <span class="badge badge-dark">#{{ cate }}</span> {% endfor %}</h5>
                             </li>
                             <li>
-                                <h5><b>Rate point:</b> {{ food.get_original_rate }} / 100</h5>
+                                <h5><b id="Rate">Rate point:</b> {{ food.get_original_rate }} / 100</h5>
                             </li>
                             {% if user.is_authenticated and not user.is_anonymous %}
                                 {% if food.get_check_vote %}
