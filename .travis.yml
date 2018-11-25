@@ -32,8 +32,11 @@ before_script:
   - sleep 3 
   - python manage.py makemigrations
   - python manage.py migrate
-  - python manage.py runserver localhost:8000
+  - python manage.py runserver localhost:8000 &
 
 script:
   - python manage.py collectstatic
   - python manage.py test --noinput khubkhaoapp/tests --verbosity 2
+
+after_script:
+  - coveralls
