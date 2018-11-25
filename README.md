@@ -8,13 +8,22 @@
 
 **Table of contents**
 - [Description](#description)
-- [Documents](#documents)
-- [Install and Run](#install-and-run)
 - [Team members](#team-members)
+- [Documents](#documents)
+- [Installation Instructions](#installation-instructions)
+- [How to Run](#how-to-run)
 
 
 ## Description
 **Khub-Khao Recommender** is a web application which will be a food recommender that based on criteria specified by the user. The intended users are everyone that can’t decided what to eat. The main features are get criteria specified by the user then analyze and show foods in the category based on the requirement, show rating of foods from our server and users able to rate foods if they want.
+
+
+## Team members
+Team members | GitHub | Role(s)
+-------------|--------|----------
+Vichakorn Yotboonrueang | [**Newaz2542**](https://github.com/Newaz2542) | Team Leader, Developer
+Kunyaruk Katebunlu | [**NokKbl**](https://github.com/NokKbl) | Developer
+Kornphon Noiprasert | [**Driveiei**](https://github.com/Driveiei) | Developer
 
 
 ## Documents
@@ -24,7 +33,7 @@
 - **Others**: [Our GitHub Wiki](https://github.com/NokKbl/khubkhao-recommender/wiki)
 
 
-## Installation
+## Installation Instructions
 **1. Install Python and virtualenv.**
 - **Python** (v.3.6.6 or newer)
     * The official download site: https://www.python.org/downloads/
@@ -34,7 +43,6 @@
     $ pip install virtualenv
     ```
     For more information: https://virtualenv.pypa.io/en/latest/
-
 
 **2. Install project and configuration.**
 1. Open **Terminal** and clone the project from [KhubKhao-Recommender](https://github.com/NokKbl/khubkhao-recommender.git).
@@ -58,7 +66,10 @@
     ```bash
     (env)$ pip install -r requirements.txt
     ```
-**3. Run the following commands to make migrations, apply migrate, add seed data and run server.**
+
+
+## How to run
+**Run the following commands to make migrations, apply migrate, add seed data and run server.**
 1. Make migrations.
     ```bash
     (env)$ python manage.py makemigrations
@@ -71,20 +82,15 @@
     ```bash
     (env)$ python manage.py loaddata seed.json
     ```
-4. Run server at [127.0.0.1:8000](http://127.0.0.1:8000).
+4. Run server at [localhost:8000](http://localhost:8000).
     ```bash
     (env)$ python manage.py runserver
     ```
-* If you want to login into admin site at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin), you can do it by create superuser.
+* If you want to login into admin site at [localhost:8000/admin](http://localhost:8000/admin), you can do it by create superuser.
     ```bash
     (env)$ python manage.py createsuperuser
     ```
-**4. When done, exit virtualenv.**
+**When done, exit virtualenv.**
 ```bash
 (env)$ deactivate
 ```
-
-## Team members
-- [**Kornphon Noiprasert**](https://github.com/Driveiei) (ID: 6010545021)
-- [**Kunyaruk Katebunlu**](https://github.com/NokKbl) (ID: 6010545692)
-- [**Vichakorn Yotboonrueang**](https://github.com/Newaz2542) (ID: 6010545889)
