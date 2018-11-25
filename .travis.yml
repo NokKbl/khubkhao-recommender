@@ -32,7 +32,7 @@ before_script:
   - sleep 3 
   - python manage.py makemigrations
   - python manage.py migrate
-  - python mange.py runserver localhost:8000
+  - python manage.py runserver localhost:8000
 
 script:
   - python manage.py collectstatic
