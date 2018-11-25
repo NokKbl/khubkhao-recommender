@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+<div style="text-align:center;">
+    <div class="row">
+        <div class="col-7" style="text-align:right; padding-left: 7vw;">
+            <img src="{% static 'khubkhaoapp/images/food.png' %}" width="900vw" height="900vw">
+        </div>
+        <div class="col-5">
+            <br><br>
+            <h4>Don't have an account? Sign Up!</h4>
+
+            <form method="post">
+                <br>
+                <a href="{% url 'social:begin' 'facebook' %}">
+                    {% csrf_token %}
+                    <button type="button" class="btn" style="background-color: #4267b2; text-align:left; padding-left: 60px; font-size: 24px; color:white; width: 400px;">
+                        <i class="fa fa-facebook"></i>
+                        <span style="width: 20px; display: inline-block;"></span>
+                        Sign in with Facebook
+                    </button>
+                </a>
+            </form>
+            <br>
+            <form method="post">
+                <a href="{% url 'social:begin' 'twitter' %}">
+                    {% csrf_token %}
+                    <button type="button" class="btn" style="background-color:#38a1f2; text-align:left; padding-left: 60px; font-size: 24px; color:white; width: 400px;">
+                        <i class="fa fa-twitter"></i>
+                        <span style="width: 20px; display: inline-block;"></span>
+                        Sign in with Twitter
+                    </button>
+                </a>
+            </form>
+            <br>
+            <form method="post">
+                <a href="{% url 'social:begin' 'google-oauth2' %}">
+                    {% csrf_token %}
+                    <button type="button" class="btn" style="background-color: #dd4d42; text-align:left; padding-left: 60px; font-size: 24px; color:white; width: 400px;">
+                        <i class="fa fa-google-plus"></i>
+                        <span style="width: 20px; display: inline-block;"></span>
+                        Sign in with Google
+                    </button>
+                </a>
+            </form>
+            <br>
+            <h4>- or -</h4>
+            <br>
+            <form method="post">
+                <a href="{% url 'khubkhaoapp:index' %}">
+                    <button type="button" class="btn" style="background-color: #f9a602; text-align:left; padding-left: 50px; font-size: 24px; color:#4c352d; width: 400px;">
+                        <img src="{% static 'khubkhaoapp/images/logo.png' %}" width="40px" height="40px">
+                        <span style="width: 20px; display: inline-block;"></span>
+                        Enter Khubkhao Site
+                    </button>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
