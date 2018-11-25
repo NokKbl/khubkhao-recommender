@@ -3,9 +3,9 @@
 {% block user %}
 {% if user.is_authenticated and not user.is_anonymous %}
 <div style="text-align:center;">
-    <p>Hi, {{ user.get_full_name|default:user.username }}!</p>
+    <p><b>Hi, {{ user.get_full_name|default:user.username }}!</b></p>
     <a href="{% url 'logout' %}">
-        <button class="btn btn-secondary" type="submit">Logout</button>
+        <button class="btn btn-outline-dark" type="submit">Logout</button>
     </a>
 </div>
 {% else %}
@@ -68,39 +68,46 @@
         <div class="content" style="text-align: center;">
             <div class="row"></div>
             <br>
-            <h1>Generated Result!</h1>
+            <h1>~ Generated Result! ~</h1>
             <br>
             <form action="{% url 'khubkhaoapp:vote' %}" method="POST">
                 {% csrf_token %}
                 {% for food in food_list %}
                 <div class="row" style="padding: 20px;">
                     <div class="col-4" style="text-align: right;">
+                        {% if user.is_authenticated and not user.is_anonymous %}
+                        <img src="{{ food.get_image_location }}" width="300px" height="200px" class="border border-warning rounded">
+                        {% else %}
                         <img src="{{ food.get_image_location }}" width="233px" height="175px" class="border border-warning rounded">
+                        {% endif %}
                     </div>
                     <div class="col-8" style="text-align: left;">
-                        <h3>{{ food }}</h3>
+                        <h3><b>{{ food }}</b></h3>
                         <ul>
                             <li>
-                                <h5>Average Price: ${{ food.get_average_price }}</h5>
+                                <h5><b>Average Price:</b> ${{ food.get_average_price }}</h5>
                             </li>
                             <li>
-                                <h5>Type: {{ food.get_ethnic_food_name }} </h5>
+                                <h5><b>Type:</b> {{ food.get_ethnic_food_name }} </h5>
                             </li>
                             <li>
-                                <h5>Categories: {% for cate in food.get_category.all %} <span class="badge badge-secondary">{{ cate }}</span> {% endfor %}</h5>
+                                <h5><b>Categories:</b> {% for cate in food.get_category.all %} <span class="badge badge-dark">#{{ cate }}</span> {% endfor %}</h5>
                             </li>
                             <li>
-                                <h5>Rate point: {{ food.get_original_rate }} /100</h5>
+                                <h5><b>Rate point:</b> {{ food.get_original_rate }} / 100</h5>
                             </li>
                             {% if user.is_authenticated and not user.is_anonymous %}
                                 {% if food.get_check_vote %}
                                 <li>
-                                    <h5>Vote:</h5>
-                                    <button class="btn btn-secondary" name="rate_star" value={{food.pk}},ONE id="vote1" type="submit">1</button>
-                                    <button class="btn btn-secondary" name="rate_star" value={{food.pk}},TWO id="vote2" type="submit">2</button>
-                                    <button class="btn btn-secondary" name="rate_star" value={{food.pk}},THREE id="vote3" type="submit">3</button>
-                                    <button class="btn btn-secondary" name="rate_star" value={{food.pk}},FOUR id="vote4" type="submit">4</button>
-                                    <button class="btn btn-secondary" name="rate_star" value={{food.pk}},FIVE id="vote5" type="submit">5</button>
+                                    <h5><b>Vote:</b>
+                                        <span class="badge badge-pill badge-dark">Min</span>--
+                                        <button class="btn btn-warning" name="rate_star" value={{food.pk}},ONE id="vote1" type="submit">1</button>
+                                        <button class="btn btn-warning" name="rate_star" value={{food.pk}},TWO id="vote2" type="submit">2</button>
+                                        <button class="btn btn-warning" name="rate_star" value={{food.pk}},THREE id="vote3" type="submit">3</button>
+                                        <button class="btn btn-warning" name="rate_star" value={{food.pk}},FOUR id="vote4" type="submit">4</button>
+                                        <button class="btn btn-warning" name="rate_star" value={{food.pk}},FIVE id="vote5" type="submit">5</button>
+                                        --<span class="badge badge-pill badge-dark">Max</span>
+                                    </h5>
                                 </li>
                                 {% endif %}
                             {% endif %}
