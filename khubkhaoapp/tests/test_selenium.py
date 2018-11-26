@@ -11,7 +11,7 @@ class UntitledTestCase(TestCase):
         self.driver = webdriver.Chrome(chrome_options=options)
         self.driver.implicitly_wait(30)
         
-        self.driver.get("http://localhost:8000/")
+        self.driver.get("https://khubkhao-rec.herokuapp.com/")
         self.driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)=concat('Don', \"'\", 't have an account? Sign Up!')])[1]/following::button[2]").click()
         self.driver.find_element_by_id("username_or_email").clear()
         self.driver.find_element_by_id("username_or_email").send_keys("devtester018@gmail.com")
@@ -26,7 +26,7 @@ class UntitledTestCase(TestCase):
         '''
         food_all = list()
         driver = self.driver
-        driver.get("http://localhost:8000/khubkhao/")  
+        driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/")  
         driver.find_element_by_id("ethnic1").click()
         driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Side dish'])[1]/following::input[1]").click()
         
@@ -42,7 +42,7 @@ class UntitledTestCase(TestCase):
         '''
         food_all = list()
         driver = self.driver
-        driver.get("http://localhost:8000/khubkhao/") 
+        driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/") 
         driver.find_element_by_id("category1").click()
         driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Side dish'])[1]/following::input[1]").click()
         
@@ -59,7 +59,7 @@ class UntitledTestCase(TestCase):
         '''
         food_all = list()
         driver = self.driver
-        driver.get("http://localhost:8000/khubkhao/")  
+        driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/")  
         driver.find_element_by_id("ethnic1").click()
         driver.find_element_by_id("category2").click()
         driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Side dish'])[1]/following::input[1]").click()
@@ -77,7 +77,7 @@ class UntitledTestCase(TestCase):
         '''
         food_all = list()
         driver = self.driver
-        driver.get("http://localhost:8000/khubkhao/")  
+        driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/")  
         driver.find_element_by_id("ethnic1").click()
         driver.find_element_by_id("category5").click()
         driver.find_element_by_id("category6").click()
