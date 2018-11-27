@@ -37,7 +37,7 @@ class FoodModelTest(TestCase):
             average_price = 3.1,
             original_rate = 80,
             user_rate = 0,
-            pk_voted = '1,6,',
+            pk_voted = '1,6,7,',
             user_count = 3,
             ethnic_food_name = EthnicFood.objects.create(ethnic_food_name="Thai Food"),
             )
@@ -93,10 +93,10 @@ class FoodModelTest(TestCase):
         self.assertEqual(list(food.category.all()), [category1, category2])
 
     def test_add_user_pk_method(self):
-        ''' Food name Baozi have 2 pk_vote which is 1,6 then add pk=3. So it equal to 1,6,3, '''
+        ''' Food name Baozi have 3 pk_vote which is 1,6,7 then add pk=3. So it equal to 1,6,7,3, '''
         food = Food.objects.all().first()
         food.add_user_pk('3')
-        self.assertEqual(food.get_user_pk(),'1,6,3,')
+        self.assertEqual(food.get_user_pk(),'1,6,7,3,')
     
     def test_add_user_count_method(self):
         ''' Food name Baozi have 3 people vote. User add one more vote to food. So it increase to 4'''
