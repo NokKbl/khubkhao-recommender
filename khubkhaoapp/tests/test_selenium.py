@@ -5,7 +5,7 @@ from unittest import TestCase
 class UntitledTestCase(TestCase):
     
     def setUp(self):
-        '''setup chromedriver to run headless'''
+        '''setup chromedriver to run headless and login to website'''
         options = Options()
         options.add_argument("--headless")
         self.driver = webdriver.Chrome(chrome_options=options)

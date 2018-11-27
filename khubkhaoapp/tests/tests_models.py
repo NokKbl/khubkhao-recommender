@@ -36,9 +36,9 @@ class FoodModelTest(TestCase):
             image_location = "http://drive.google.com/uc?export=view&id=1zbH52fRGRqMGRMSnEi2BGTU4D--Gkoy5",
             average_price = 3.1,
             original_rate = 80,
-            user_rate = 40,
+            user_rate = 0,
             pk_voted = '1,6,',
-            user_count = 2,
+            user_count = 3,
             ethnic_food_name = EthnicFood.objects.create(ethnic_food_name="Thai Food"),
             )
 
@@ -74,7 +74,7 @@ class FoodModelTest(TestCase):
 
     def test_integer_of_user_rate_representation(self):
         ''' DecimalField of user_rate Food models have same integer that create in setup '''
-        self.assertTrue(Food.objects.filter(user_rate=40))
+        self.assertTrue(Food.objects.filter(user_rate=0))
 
     def test_objects_of_ethnic_food_name_representation(self):
         ''' ForeignKey of ethnic_food_name in Food models have same objects that create in setup '''
@@ -99,18 +99,26 @@ class FoodModelTest(TestCase):
         self.assertEqual(food.get_user_pk(),'1,6,3,')
     
     def test_add_user_count_method(self):
-        ''' Food name Baozi have 2 people vote for this food then it have people add one more. So it increst to 3'''
+        ''' Food name Baozi have 3 people vote. User add one more vote to food. So it increase to 4'''
         food = Food.objects.all().first()
         food.add_user_count()
-        self.assertEqual(food.get_user_count(),3)
+        self.assertEqual(food.get_user_count(),4)
 
-    def test_compute_total_rate(self):
-        ''' Food name Baccalà Fritto have original rate 78 user rate is set to 80 so total rate is 78.4  '''
+    def test_one_user_vote(self):
+        ''' Food name Baccalà Fritto have original rate 78, user rate is set to 80 so total rate is 78.4  '''
         food = Food.objects.all().last()
         food.set_user_rate(80)
         rate = food.compute_total_rate()
         self.assertEqual(rate,78.4)
 
+    def test_many_user_vote(self):
+        ''' Food name Baozi have 3 vote, origingal rate is 80, all user rate is 120. The total rate is 72  '''
+        food = Food.objects.all().first()
+        food.set_user_rate(120)
+
+        rate = food.compute_total_rate()
+        self.assertEqual(rate,72)
+        
 
 class FixturesTest(TestCase):
     fixtures = ['seed.json']
