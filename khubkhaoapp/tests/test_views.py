@@ -47,14 +47,6 @@ class ViewPageTest(TestCase):
         self.assertIn(response.status_code, self.status)
 
 
-    def test_vote_page_status_code(self):
-        '''
-        Test that the page URL for user vote is exist.
-        '''
-        response = self.client.get('/vote')
-        self.assertIn(response.status_code, self.status)
-
-
     def test_login_page_status_code(self):
         '''
         Test that the login page URL is exist.
