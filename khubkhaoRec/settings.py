@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import django_heroku
 from decouple import config
+import logging.config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -134,6 +135,33 @@ AUTH_PASSWORD_VALIDATORS = [
 FIXTURE_DIRS = (
    'khubkhaoapp/fixtures/',
 )
+
+LOGGING_CONFIG = None
+
+logging.config.dictConfig({
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'default': {
+            'format' :'%(asctime)s %(funcName)s %(levelname)s  %(message)s',
+            'datefmt': '%Y-%m-%d %I:%M:%S',
+        },
+    },
+    'handlers': {
+        'file-info': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/activity.log',
+            'formatter': 'default',
+        },
+    },
+    'loggers': {
+        'khubkhaoapp.views' : {
+            'handlers': ['file-info'],
+            'level': 'INFO',
+        },
+    },
+})
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
