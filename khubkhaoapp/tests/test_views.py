@@ -2,26 +2,70 @@ from django.http import HttpRequest
 from django.test import TestCase
 from django.urls import reverse
 
-class IndexPageTest(TestCase):
+
+class ViewPageTest(TestCase):
+    
+    def setUp(self):
+        '''
+        Setup list of possible valid status.
+        '''
+        self.status = list()
+        self.status.append(200)
+        self.status.append(301)
+
 
     def test_home_page_status_code(self):
-        ''' Check url is exits '''
+        '''
+        Test that the webpage URL is exist.
+        '''
         response = self.client.get('/')
-        self.assertEquals(response.status_code, 200)
+        self.assertIn(response.status_code, self.status)
+
 
     def test_view_uses_correct_template(self):
-        ''' Check index.html is a template of url('/') '''
+        '''
+        Test that the webpage exist and used correct template.
+        '''
         response = self.client.get(reverse('khubkhaoapp:index'))
-        self.assertEquals(response.status_code, 200)
+        self.assertIn(response.status_code, self.status)
         self.assertTemplateUsed(response, 'khubkhaoapp/index.html')
 
-    def test_home_page_returns_correct_html(self):
-        ''' Check request url contains component in index.html '''
-        response = self.client.get('/')
-        self.assertContains(response, '<h1>Generated Result!</h1>')
 
-    def test_home_page_does_not_contains_incorrect_html(self):
-        '''Check request url does not contains component in index.html'''
-        response = self.client.get('/')
-        self.assertNotContains(response, 'This should not be on the page.')
+    def test_result_page_status_code(self):
+        '''
+        Test that the result page URL is exist.
+        '''
+        response = self.client.get('/result')
+        self.assertIn(response.status_code, self.status)
 
+
+    def test_khubkhao_page_status_code(self):
+        '''
+        Test that the homepage URL is exist.
+        '''
+        response = self.client.get('/khubkhao')
+        self.assertIn(response.status_code, self.status)
+
+
+    def test_vote_page_status_code(self):
+        '''
+        Test that the page URL for user vote is exist.
+        '''
+        response = self.client.get('/vote')
+        self.assertIn(response.status_code, self.status)
+
+
+    def test_login_page_status_code(self):
+        '''
+        Test that the login page URL is exist.
+        '''
+        response = self.client.get('/login')
+        self.assertIn(response.status_code, self.status)
+
+
+    def test_logout_page_status_code(self):
+        '''
+        Test that the logout page URL is exist.
+        '''
+        response = self.client.get('/logout')
+        self.assertIn(response.status_code, self.status)

@@ -35,6 +35,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
 
+
 class Food(models.Model):
     food_name = models.CharField(
         max_length=40,
@@ -73,11 +74,12 @@ class Food(models.Model):
             MaxValueValidator(100),
             MinValueValidator(0)
         ],
+        help_text='Must be 0-100', 
     )
 
     user_rate = models.DecimalField(
         default=0,
-        max_digits=8,
+        max_digits=9,
         decimal_places=2,
         verbose_name='User Rate',
         blank=True,
@@ -106,6 +108,15 @@ class Food(models.Model):
         blank=False
     )
 
+    pk_voted = models.TextField(
+        verbose_name='Primary key of user',
+        blank=True,
+    )
+
+    check_vote = models.BooleanField(
+        default=True
+    )
+    
     def __str__(self):
         return self.food_name
 
@@ -114,9 +125,15 @@ class Food(models.Model):
 
     def get_image_location(self):
         return self.image_location
-
+    
     def add_user_count(self):
         self.user_count = float(self.user_count)+1
+
+    def add_user_pk(self,primary_key):
+        self.pk_voted = self.pk_voted + str(primary_key) + ","
+
+    def get_user_pk(self):
+        return self.pk_voted
 
     def set_user_rate(self,value):
         self.user_rate = float(self.user_rate)+value
@@ -142,31 +159,21 @@ class Food(models.Model):
 
     def get_user_count(self):
         return self.user_count
-
-    # def change_user_rate(self, increase):
-    #     if self.user_rate+increase > 100 :
-    #         self.user_rate = 100
-
-    #     return self.user_rate+increase
-
-    # def get_total_rate(self):
-    #     float_price = float(self.original_rate)*0.8
-    #     float_user = float(self.user_rate)*0.2
-    #     float_price = float("{0:.2f}".format(float_price))
-    #     float_user = float("{0:.2f}".format(float_user))
-    #     return float_price+float_user
-
-    # def get_db_prep_value(self, value, connection, prepared=False):
-    #     value = super().get_db_prep_value(value, connection, prepared)
-    #     if value is not None:
-    #         return connection.Database.Binary(value)
-    #     return value
-
+    
     def get_ethnic_food_name(self):
         return self.ethnic_food_name
 
     def get_category(self):
         return self.category
+
+    def set_check_false(self):
+        self.check_vote = False
+    
+    def set_check_true(self):
+        self.check_vote = True
+    
+    def get_check_vote(self):
+        return self.check_vote
 
     class Meta:
         verbose_name = "Food"

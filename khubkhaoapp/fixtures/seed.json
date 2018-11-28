@@ -519,6 +519,7 @@
             "average_price": 1.52,
             "original_rate": 70,
             "ethnic_food_name": 106,
+            "user_count": 0,
             "category": [
                 7
             ]
@@ -533,6 +534,7 @@
             "average_price": 1.06,
             "original_rate": 65,
             "ethnic_food_name": 106,
+            "user_count": 0,
             "category": [
                 2
             ]
@@ -547,6 +549,7 @@
             "average_price": 1.67,
             "original_rate": 62,
             "ethnic_food_name": 106,
+            "user_count": 0,
             "category": [
                 5,
                 8
@@ -562,6 +565,7 @@
             "average_price": 1.21,
             "original_rate": 76,
             "ethnic_food_name": 106,
+            "user_count": 0,
             "category": [
                 8
             ]
@@ -579,6 +583,7 @@
             "average_price": 1.75,
             "original_rate": 80,
             "ethnic_food_name": 107,
+            "user_count": 0,
             "category": [
                 4
             ]
@@ -593,6 +598,7 @@
             "average_price": 1.75,
             "original_rate": 68,
             "ethnic_food_name": 107,
+            "user_count": 0,
             "category": [
                 4
             ]
@@ -607,6 +613,7 @@
             "average_price": 2.25,
             "original_rate": 80,
             "ethnic_food_name": 107,
+            "user_count": 0,
             "category": [
                 4
             ]
@@ -621,6 +628,7 @@
             "average_price": 1.38,
             "original_rate": 62,
             "ethnic_food_name": 107,
+            "user_count": 0,
             "category": [
                 1
             ]
@@ -635,6 +643,7 @@
             "average_price": 0.99,
             "original_rate": 68,
             "ethnic_food_name": 107,
+            "user_count": 0,
             "category": [
                 2,
                 4
