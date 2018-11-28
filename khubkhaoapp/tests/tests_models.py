@@ -169,7 +169,7 @@ class FoodModelTest(TestCase):
         '''
         food = Food.objects.all().last()
         food.set_user_rate(80)
-        rate = food.compute_total_rate()
+        rate = food.set_total_rate()
         self.assertEqual(rate,78.4)
 
 
@@ -182,7 +182,7 @@ class FoodModelTest(TestCase):
         food = Food.objects.all().first()
         food.set_user_rate(120)
 
-        rate = food.compute_total_rate()
+        rate = food.set_total_rate()
         self.assertEqual(rate,72)
 
 
