@@ -120,9 +120,11 @@ def vote_food(request,pk_food,vote):
 
 
 def check_authenticated(request):
-    if request.user.is_authenticated and not request.user.is_anonymous:
-        return True
-    return False
+    '''
+    Check user or guest.
+    '''
+    return request.user.is_authenticated and not request.user.is_anonymous:
+
 
 
 class HomeView(TemplateView):
