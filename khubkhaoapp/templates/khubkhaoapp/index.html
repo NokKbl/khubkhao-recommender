@@ -70,7 +70,7 @@
             <br>
             <h1>~ Generated Result! ~</h1>
             <br>
-            <form action="{% url 'khubkhaoapp:vote' %}" method="POST">
+            <form action="{% url 'khubkhaoapp:index' %}" method="POST">
                 {% csrf_token %}
                 {% for food in food_list %}
                 <div class="row" style="padding: 20px;">
