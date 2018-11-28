@@ -20,6 +20,14 @@ class Rate(Enum):
     FOUR = 80
     FIVE = 100
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
 def vote_value(raw_number):
     if(raw_number == "ONE") :
         return Rate.ONE
@@ -129,10 +137,4 @@ def IndexVoteView(request):
     logger.info('ip: %s id: %d user: %s have been vote food for %s ' % (ip,request.user.id,request.user.get_full_name(),pk_and_vote[1]))
     return render(request,'khubkhaoapp/index.html', context)
 
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
+
