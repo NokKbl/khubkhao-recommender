@@ -123,7 +123,7 @@ def check_authenticated(request):
     '''
     Check user or guest.
     '''
-    return request.user.is_authenticated and not request.user.is_anonymous:
+    return request.user.is_authenticated and not request.user.is_anonymous
 
 
 
