@@ -77,22 +77,22 @@ def logging_user(request,selected_ethnic,selected_category):
         username = request.user.get_full_name()
 
         if not selected_category.exists() and not selected_ethnic.exists():
-            logger.info('ip: %s id: %d user: %s didn\'t selected' % (user_ip,user_id,username))
+            logger.info('ip: %s id: %d user: %s didn\'t selected.' % (user_ip,user_id,username))
         elif selected_category.exists() and not selected_ethnic.exists():
-            logger.info('ip: %s id: %d user: %s is selected Category%s' % (user_ip,user_id,username,category))
+            logger.info('ip: %s id: %d user: %s is selected %s.' % (user_ip,user_id,username,category))
         elif not selected_category.exists() and selected_ethnic.exists():
-            logger.info('ip: %s id: %d user: %s is selected EthnicFood%s' % (user_ip,user_id,username,ethnic))
+            logger.info('ip: %s id: %d user: %s is selected %s.' % (user_ip,user_id,username,ethnic))
         else:
-            logger.info('ip: %s id: %d user: %s is selected EthnicFood%s and Category%s ' % (user_ip,user_id,username,ethnic,category))
+            logger.info('ip: %s id: %d user: %s is selected %s and %s .' % (user_ip,user_id,username,ethnic,category))
     else:
         if not selected_category.exists() and not selected_ethnic.exists():
-            logger.info('ip: %s Guest didn\'t selected' % (user_ip))
+            logger.info('ip: %s Guest didn\'t selected.' % (user_ip))
         elif selected_category.exists() and not selected_ethnic.exists():
-            logger.info('ip: %s Guest is selected Category%s' % (user_ip,category))
+            logger.info('ip: %s Guest is selected %s.' % (user_ip,category))
         elif not selected_category.exists() and selected_ethnic.exists():
-            logger.info('ip: %s Guest is selected EthnicFood%s' % (user_ip,ethnic))
+            logger.info('ip: %s Guest is selected %s.' % (user_ip,ethnic))
         else:
-            logger.info('ip: %s Guest is selected EthnicFood%s and Category%s ' % (user_ip,ethnic,category))
+            logger.info('ip: %s Guest is selected %s and %s.' % (user_ip,ethnic,category))
 
         
 def sort_food(unsorted_food):
@@ -134,7 +134,6 @@ def check_authenticated(request):
     return request.user.is_authenticated and not request.user.is_anonymous
 
 
-
 class HomeView(TemplateView):
     template_name = 'registration/login.html'
 
@@ -148,16 +147,16 @@ def IndexView(request):
     if check_authenticated(request):
         user_id = request.user.id
         username = request.user.get_full_name()
-        logger.info('ip: %s id: %d user: %s have been using webpage ' % (user_ip,user_id,username))
+        logger.info('ip: %s id: %d user: %s have been using webpage.' % (user_ip,user_id,username))
         if request.method == "POST":
             my_vote = request.POST.get('rate_star')
             pk_and_vote = my_vote.split(',')
             vote_food(request,pk_and_vote[0],pk_and_vote[1])
             food = Food.objects.get(pk=pk_and_vote[0])
             rate = vote_value(pk_and_vote[1]).value
-            logger.info('ip: %s id: %d user: %s have been vote %s for %s points' % (user_ip,user_id,username,food,rate))
+            logger.info('ip: %s id: %d user: %s have been vote %s for %s points.' % (user_ip,user_id,username,food,rate))
     else:
-        logger.info('ip: %s Guest have been using webpage' % user_ip)
+        logger.info('ip: %s Guest have been using webpage.' % user_ip)
     unsorted_results = Food.objects.all()
     check_vote(request,unsorted_results)
     food_list = sort_food(unsorted_results)

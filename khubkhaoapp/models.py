@@ -154,7 +154,7 @@ class Food(models.Model):
 
     def add_user_pk(self,primary_key):
         self.pk_voted = self.pk_voted + str(primary_key) + ","
-
+        
 
     def get_user_pk(self):
         return self.pk_voted
