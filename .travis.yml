@@ -35,4 +35,5 @@ script:
   - python manage.py makemigrations
   - python manage.py migrate
   - python manage.py collectstatic
-  - python manage.py test --noinput khubkhaoapp/tests --verbosity 2
+  - coverage run --source='.' manage.py test --noinput khubkhaoapp/tests --verbosity 2
+  - coverage report
