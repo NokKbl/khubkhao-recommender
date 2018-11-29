@@ -66,6 +66,7 @@ Kornphon Noiprasert | [**Driveiei**](https://github.com/Driveiei) | Developer
     ```bash
     (env)$ pip install -r requirements.txt
     ```
+5. Change a file name `.env.example` into `.env`.
 
 
 ## How to run
