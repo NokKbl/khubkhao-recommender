@@ -5,6 +5,7 @@ from django.urls import reverse
 
 class ViewPageTest(TestCase):
     
+    
     def setUp(self):
         '''
         Setup list of possible valid status.
