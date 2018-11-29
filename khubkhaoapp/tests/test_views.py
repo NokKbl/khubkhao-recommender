@@ -36,7 +36,7 @@ class TestViews(TestCase):
 
     def test_post_index(self):
         '''
-        Test IndexView is Post request. So rate_star is exits. 
+        Test that Post request in IndexView. So rate_star is exits. 
         '''
         c = Client()
         data = {'rate_star' : 'ONE'}
@@ -46,7 +46,7 @@ class TestViews(TestCase):
 
     def test_post_resutl(self):
         '''
-        Test IndexResultView is Post request. So category_name and ethnic_name are exits. 
+        Test that Post request in IndexResultView. So category_name and ethnic_name are exits. 
         '''
         c = Client()
         data = {'category_name' : 4}
