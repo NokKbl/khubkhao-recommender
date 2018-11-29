@@ -5,6 +5,7 @@ from enum import Enum
 from khubkhaoapp.models import Category, EthnicFood, Food
 import logging
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -14,6 +15,13 @@ class Rate(Enum):
     THREE = 60
     FOUR = 80
     FIVE = 100
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        return x_forwarded_for.split(',')[0]
+    return request.META.get('REMOTE_ADDR')
 
 
 def vote_value(raw_number):
@@ -145,7 +153,9 @@ def IndexView(request):
             my_vote = request.POST.get('rate_star')
             pk_and_vote = my_vote.split(',')
             vote_food(request,pk_and_vote[0],pk_and_vote[1])
-            logger.info('ip: %s id: %d user: %s have been vote food for %s ' % (user_ip,user_id,username,pk_and_vote[1]))
+            food = Food.objects.get(pk=pk_and_vote[0])
+            rate = vote_value(pk_and_vote[1]).value
+            logger.info('ip: %s id: %d user: %s have been vote %s for %s points' % (user_ip,user_id,username,food,rate))
     else:
         logger.info('ip: %s Guest have been using webpage' % user_ip)
     unsorted_results = Food.objects.all()
@@ -185,11 +195,3 @@ def IndexResultView(request):
         'ethnic_list': ethnic_list,
     }
     return render(request,template_name, context)
-
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip
