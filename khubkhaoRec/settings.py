@@ -154,11 +154,21 @@ logging.config.dictConfig({
             'filename': 'logs/activity.log',
             'formatter': 'default',
         },
+        'file-error': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/error.log',
+            'formatter': 'default',
+        },
     },
     'loggers': {
         'khubkhaoapp.views' : {
             'handlers': ['file-info'],
             'level': 'INFO',
+        },
+        'django' : {
+            'handlers': ['file-error'],
+            'level': 'ERROR',
         },
     },
 })
