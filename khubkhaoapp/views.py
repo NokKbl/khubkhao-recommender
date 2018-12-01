@@ -10,14 +10,17 @@ logger = logging.getLogger(__name__)
 
 
 class Rate(Enum):
+    """An enumeration for rate values."""
     ONE = 20
     TWO = 40
     THREE = 60
     FOUR = 80
     FIVE = 100
 
-
 def get_client_ip(request):
+    """
+    # TODO Hello World.
+    """
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
         return x_forwarded_for.split(',')[0]
@@ -25,36 +28,53 @@ def get_client_ip(request):
 
 
 def vote_value(raw_number):
+    """Get rate value from enumeration which can be [20,40,60,80,100].
+
+    Args:
+        raw_number (str): text which used to specify rate value.
+    Returns:
+        int: rate value which can be [20,40,60,80,100].
+    """
     if(raw_number == "ONE") :
-        return Rate.ONE
+        return Rate.ONE.value
     elif(raw_number == "TWO") :
-        return Rate.TWO
+        return Rate.TWO.value
     elif(raw_number == "THREE") :
-        return Rate.THREE
+        return Rate.THREE.value
     elif(raw_number == "FOUR") :
-        return Rate.FOUR
+        return Rate.FOUR.value
     else :
-        return Rate.FIVE
+        return Rate.FIVE.value
 
 
 def filter_ethnic(ethnic):
-    '''
-    Get ethnic from user then filter EhtnicFood.
-    '''
+    """Filter ethnic's names which has been chosen from user.
+
+    Returns:
+        EthinicFood: ethnic's names which has been chosen from user.
+    """
     return EthnicFood.objects.filter(id__in=ethnic)
 
 
 def filter_category(category):
-    '''
-    Get category from user then filter Category.
-    '''
+    """Filter category's types which has been chosen from user.
+
+    Returns:
+        Category: category's types which has been chosen from user.
+    """
     return Category.objects.filter(id__in=category)
 
 
 def filter_food(selected_ethnic,selected_category):
-    '''
-    Get selected_ethnic and selected_category from user then filter Food.
-    '''
+    """Filter food's criteria specified by the user based on the requirement.
+
+        Args:
+            selected_ethnic (EthinicFood): ethnic's names which has been chosen from user.
+            selected_category (Category): category's types which has been chosen from user.
+        
+        Returns:
+            Food: food's criteria specified by the user.
+    """
     if not selected_category.exists() and not selected_ethnic.exists():
         return Food.objects.all()
     elif not selected_category.exists() or not selected_ethnic.exists():
@@ -65,9 +85,14 @@ def filter_food(selected_ethnic,selected_category):
 
 
 def logging_user(request,selected_ethnic,selected_category):
-    '''
+    """
+    # TODO New wrote this.
     Logging activity that user select type of ethnic food, category.
-    '''
+    
+    Args:
+        selected_ethnic (EthinicFood): ethnic's names which has been chosen from user.
+        selected_category (Category): category's types which has been chosen from user.
+    """
     user_ip = get_client_ip(request)
     category = str(selected_category)
     ethnic = str(selected_ethnic)
@@ -96,16 +121,26 @@ def logging_user(request,selected_ethnic,selected_category):
 
         
 def sort_food(unsorted_food):
-    '''
-    Sort food by overall rate.
-    '''
+    """Sort dish food by overall rate from user and database arrange in descending order.
+    
+    Args:
+        unsorted_food (list): a list of dish food which not be ordered.
+
+    Returns:
+        list: food's criteria specified by the user.
+    """
     return sorted(unsorted_food, key = lambda food: food.set_total_rate(), reverse=True)[:25]
 
 
 def check_vote(request,food_set):
-    '''
-    If user vote food then set check to false.
-    '''
+    """
+    Check whether user is already voted each dish food or not.
+    Set voteable's status for each dish food can't be voted(False) 
+    if user is already voted, can be voted otherwise(True). 
+
+    Args:
+        food_set (list): a list of dish food.
+    """
     for food in food_set:
         array = food.get_user_pk().split(',')
         if(str(request.user.pk) in array):
@@ -116,10 +151,16 @@ def check_vote(request,food_set):
 
 
 def vote_food(request,pk_food,vote):
-    '''
-    If user vote food then count of vote in each food is increase.
-    '''
-    vote_scores = vote_value(vote).value
+    """
+    Check whether user is already voted each dish food or not.
+    Set voteable's status for each dish food can't be voted(False) 
+    if user is already voted, can be voted otherwise(True). 
+
+    Args:
+        pk_food (str): a primary key which used to specify food which has been voted.
+        vote (str): text which used to specify rate value.
+    """
+    vote_scores = vote_value(vote)
     food = Food.objects.get(pk=pk_food)
     food.add_user_count()
     food.set_user_rate(vote_scores)
@@ -128,20 +169,31 @@ def vote_food(request,pk_food,vote):
 
 
 def check_authenticated(request):
-    '''
-    Check user or guest.
-    '''
+    """Check whether is logged in(authenticated) or not.
+
+    Returns:
+        bool: True if logged in(authenticated), False otherwise(anonymous).
+    """
     return request.user.is_authenticated and not request.user.is_anonymous
 
 
 class HomeView(TemplateView):
+    """
+    Homeview class render a template which is login page. Pass keyword arguments from the URLconf to the context.
+    """
     template_name = 'registration/login.html'
 
 
 def IndexView(request):
-    '''
-    Initial template when user get into KHUBKHAO-RECOMMENDER.
-    '''
+    """
+    IndexView class render a template, which is index page, 
+    and combines a given template with a given context dictionary.
+    Also, IndexView class represents all dishes food in database 
+    which is already descending ordered.
+
+    Returns:
+        HttpResponse: an HttpResponse object with that rendered text.
+    """
     user_ip = get_client_ip(request)
     template_name = 'khubkhaoapp/index.html'
     if check_authenticated(request):
@@ -153,7 +205,7 @@ def IndexView(request):
             pk_and_vote = my_vote.split(',')
             vote_food(request,pk_and_vote[0],pk_and_vote[1])
             food = Food.objects.get(pk=pk_and_vote[0])
-            rate = vote_value(pk_and_vote[1]).value
+            rate = vote_value(pk_and_vote[1])
             logger.info('ip: %s id: %d user: %s have been vote %s for %s points.' % (user_ip,user_id,username,food,rate))
     else:
         logger.info('ip: %s Guest have been using webpage.' % user_ip)
@@ -171,9 +223,16 @@ def IndexView(request):
     
 
 def IndexResultView(request):
-    '''
-    If user filter food then POST request to change result of food.
-    '''
+    """
+    IndexView class render a template, which is index page, 
+    and combines a given template with a given context dictionary.
+    Also, IndexView class represents 25 dishes food in database 
+    which is already filtered food's criteria specified
+    by the user based on the requirement and descending ordered.
+
+    Returns:
+        HttpResponse: an HttpResponse object with that rendered text.
+    """
     template_name = 'khubkhaoapp/index.html'
     if request.method == "POST":
         my_ethnic = request.POST.getlist('ethnic_name')

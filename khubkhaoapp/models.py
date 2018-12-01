@@ -63,7 +63,7 @@ class Food(models.Model):
     which can compute rate of food from user and database by itself.
 
     Attributes:
-        models.Model(Model): source of information. It contains the essential fields and behaviors of the data you’re storing.
+        models.Model (Model): source of information. It contains the essential fields and behaviors of the data you’re storing.
     """
     food_name = models.CharField(
         max_length=40,
@@ -158,7 +158,7 @@ class Food(models.Model):
     check_vote = models.BooleanField(
         default=True
     )
-
+    
     def __str__(self):
         """Override to print a readable string presentation of food.
 
@@ -206,18 +206,18 @@ class Food(models.Model):
         return self.pk_voted
 
     def set_user_rate(self, value):
-        """Add user's rate points to database.
+        """Add user's rate value to database.
 
         Args:
-            value (int): user's rate points which can be [20,40,60,80,100].
+            value (int): user's rate value which can be [20,40,60,80,100].
         """
         self.user_rate = float(self.user_rate)+value
 
     def set_total_rate(self):
-        """Set food's total rate points which computes from user's rate and database's rate by 80:20 percentage respectively.
+        """Set food's total rate value which computes from user's rate and database's rate value by 80:20 percentage respectively.
 
         Returns:
-            Decimal: food's rate points(0-100) which computes from user's rate and database's rate.
+            Decimal: food's rate value(0-100) which computes from user's rate and database's rate value.
         """
         float_original = float(self.original_rate)*0.8
         self.total_rate = float_original
@@ -230,26 +230,26 @@ class Food(models.Model):
         return self.total_rate
 
     def get_total_rate(self):
-        """Get food's rate points which computes from user's rate and database's rate.
+        """Get food's rate value which computes from user's rate and database's rate value.
 
         Returns:
-            Decimal: food's rate points(0-100) from user's rate and database's rate.
+            Decimal: food's rate value(0-100) from user's rate and database's rate value.
         """
         return self.total_rate
 
     def get_original_rate(self):
-        """Get food's rate points from database.
+        """Get food's rate value from database.
 
         Returns:
-            Decimal: food's rate points(0-100) from database.
+            Decimal: food's rate value(0-100) from database.
         """
         return self.original_rate
 
     def get_user_rate(self):
-        """Get food's rate points from users.
+        """Get food's rate value from users.
 
         Returns:
-            Decimal: food's rate points from users which can be zero to infinity.
+            Decimal: food's rate value from users which can be zero to infinity.
         """
         return self.user_rate
 
