@@ -6,9 +6,9 @@ from unittest import TestCase
 class UntitledTestCase(TestCase):
     
     def setUp(self):
-        '''
+        """
         Setup Chrome driver to run headless and login to the application webpage.
-        '''
+        """
         options = Options()
         options.add_argument("--headless")
         self.driver = webdriver.Chrome(chrome_options=options)
@@ -23,12 +23,11 @@ class UntitledTestCase(TestCase):
         self.driver.find_element_by_id("password").send_keys("DevTester2018")
         self.driver.find_element_by_id("allow").click()
 
-
     def test_only_ethnic_check(self):
-        '''
+        """
         Test that the webpage show the results of selected ethnic food correctly.
         This test will select Chinese food.
-        '''
+        """
         food_all = list()
         driver = self.driver
         driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/")  
@@ -41,12 +40,11 @@ class UntitledTestCase(TestCase):
         self.assertIn("Beef Chow Fun",food_all)
         driver.close()
 
-
     def test_only_category_check(self):
-        '''
+        """
         Test that the webpage show the results of selected category correctly.
         This test will select Rice dish.
-        '''
+        """
         food_all = list()
         driver = self.driver
         driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/") 
@@ -60,12 +58,11 @@ class UntitledTestCase(TestCase):
         
         driver.close()
 
-
     def test_ethnic_with_category_check(self):
-        '''
+        """
         Test that the webpage show the results of selected ethnic food with category correctly.
         This test will select Chinese food with Noodle dish.
-        '''
+        """
         food_all = list()
         driver = self.driver
         driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/")  
@@ -80,12 +77,11 @@ class UntitledTestCase(TestCase):
         
         driver.close()
 
-
     def test_ethnic_with_multiple_categories_check(self):
-        '''
+        """
         Test that the webpage show the results of selected ethnic food with categories correctly.
         This test will select Chinese food with Healthy food, Vegetarian food and Side dish.
-        '''
+        """
         food_all = list()
         driver = self.driver
         driver.get("https://khubkhao-rec.herokuapp.com/khubkhao/")  
