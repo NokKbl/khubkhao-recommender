@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import django_heroku
-from decouple import config
+from decouple import config, Csv
 import logging.config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a7qia@rzah#6fxtg7!iru40!7@ut&hfupm268_thcsd&^!_z6v'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['.herokuapp.com', '.localhost']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Application definition
 
@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'khubkhaoRec.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': config('KKR_ENGINE_DB', default='django.db.backends.sqlite3'),
-        'NAME': config('KKR_NAME_DB', default=os.path.join(BASE_DIR, 'db.sqlite3')),
+        'ENGINE': config('KKR_ENGINE_DB'),
+        'NAME': config('KKR_NAME_DB'),
         'USER': config('KKR_USER_DB', default=''),
         'PASSWORD': config('KKR_PWD_DB', default=''),
         'HOST': config('KKR_HOST_DB', default=''),
@@ -104,12 +104,12 @@ LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'khubkhaoapp:index'
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-SOCIAL_AUTH_TWITTER_KEY = config('SOCIAL_AUTH_TWITTER_KEY', default='ruai0LJupcXu3ZHXYzZk44Ooe')
-SOCIAL_AUTH_TWITTER_SECRET = config('SOCIAL_AUTH_TWITTER_SECRET', default='5uSRvCOgfpznOQB5ftC9GNavvi3RIKmDH67C7sNmUGU5l4dpXI')
-SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY', default='2148036335248584')
-SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET', default='c51b549e81d6462193cfc03802057008')
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='501242684164-o4jbn1j2dlfokbap3f152ef9pujbovti.apps.googleusercontent.com')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='dLI5E2yQQP37_hu48DfmGYO0')
+SOCIAL_AUTH_TWITTER_KEY = config('SOCIAL_AUTH_TWITTER_KEY')
+SOCIAL_AUTH_TWITTER_SECRET = config('SOCIAL_AUTH_TWITTER_SECRET')
+SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/khubkhao/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/khubkhao/'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
