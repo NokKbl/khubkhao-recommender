@@ -213,7 +213,10 @@ def IndexView(request):
     
     unsorted_results = Food.objects.all()
     check_vote(request,unsorted_results)
-    food_list = sort_food(unsorted_results)
+    if request.method == "POST":
+        food_list = sort_food(unsorted_results)
+    else :
+        food_list = sorted(unsorted_results, key = lambda food: food.set_total_rate(), reverse=True)
     category_list = Category.objects.all()
     ethnic_list = EthnicFood.objects.all()
     context = {
