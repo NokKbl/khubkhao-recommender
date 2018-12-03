@@ -41,7 +41,7 @@ class TestViews(TestCase):
         response = c.post('/khubkhao/',data)
         self.assertEqual(response.status_code,200)
 
-    def test_post_resutl(self):
+    def test_post_result(self):
         """
         Test POST request in IndexResultView is work, so that category_name and ethnic_name are exist. 
         """
