@@ -2,6 +2,22 @@
 
 {% block body %}
 {% load static %}
+{% if user.is_authenticated %}
+<div style="text-align:center;">
+    <br><br><br>
+    <h1>You already logged in.</h1>
+    <br><br><br>
+    <form method="post">
+        <a href="{% url 'khubkhaoapp:index' %}">
+            <button type="button" class="btn" style="background-color: #f9a602; text-align:left; padding-left: 50px; font-size: 24px; color:#4c352d; width: 400px;">
+                <img src="{% static 'khubkhaoapp/images/logo.png' %}" width="40px" height="40px">
+                <span style="width: 20px; display: inline-block;"></span>
+                Back to Khubkhao Site
+            </button>
+        </a>
+    </form>
+</div>
+{% else %}
 <div style="text-align:center;">
     <div class="row">
         <div class="col-7" style="text-align:right; padding-left: 7vw;">
@@ -59,4 +75,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock %}

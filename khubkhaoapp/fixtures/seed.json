@@ -136,7 +136,6 @@
             "original_rate": 80,
             "ethnic_food_name": 101,
             "category": [
-                5,
                 6,
                 8
             ]
@@ -242,6 +241,7 @@
             "ethnic_food_name": 101,
             "category": [
                 5,
+                7,
                 8
             ]
         }
@@ -257,6 +257,7 @@
             "ethnic_food_name": 101,
             "category": [
                 1,
+                4,
                 5,
                 7
             ]
@@ -428,6 +429,7 @@
             "original_rate": 63,
             "ethnic_food_name": 101,
             "category": [
+                7,
                 8
             ]
         }
@@ -777,21 +779,6 @@
     },
     {
         "model": "khubkhaoapp.food",
-        "pk": 1047,
-        "fields": {
-            "food_name": "Red Bean Soup",
-            "image_location": "http://drive.google.com/uc?export=view&id=1kPMhKEf1foRZo4ldijevpt753JtnXAbj",
-            "average_price": 4,
-            "original_rate": 65,
-            "ethnic_food_name": 101,
-            "category": [
-                5,
-                7
-            ]
-        }
-    },
-    {
-        "model": "khubkhaoapp.food",
         "pk": 1048,
         "fields": {
             "food_name": "Roast Suckling Pig",
@@ -828,6 +815,7 @@
             "original_rate": 76,
             "ethnic_food_name": 101,
             "category": [
+                5,
                 7
             ]
         }
@@ -870,6 +858,7 @@
             "original_rate": 74,
             "ethnic_food_name": 101,
             "category": [
+                4,
                 8
             ]
         }
@@ -1145,7 +1134,7 @@
             "original_rate": 92,
             "ethnic_food_name": 102,
             "category": [
-                6,
+                4,
                 7,
                 8
             ]
@@ -1206,7 +1195,6 @@
             "ethnic_food_name": 102,
             "category": [
                 5,
-                6,
                 7
             ]
         }
@@ -1264,7 +1252,7 @@
             "original_rate": 76,
             "ethnic_food_name": 102,
             "category": [
-                5
+                8
             ]
         }
     },
@@ -1407,8 +1395,7 @@
             "original_rate": 75,
             "ethnic_food_name": 102,
             "category": [
-                5,
-                6
+                8
             ]
         }
     },
@@ -1523,7 +1510,7 @@
             "original_rate": 80,
             "ethnic_food_name": 102,
             "category": [
-                8
+                3
             ]
         }
     },
@@ -1552,8 +1539,7 @@
             "original_rate": 60,
             "ethnic_food_name": 102,
             "category": [
-                5,
-                6,
+                3,
                 7
             ]
         }
@@ -1638,8 +1624,8 @@
             "original_rate": 75,
             "ethnic_food_name": 102,
             "category": [
-                5,
-                6
+                6,
+                8
             ]
         }
     },
@@ -1696,8 +1682,7 @@
             "original_rate": 79,
             "ethnic_food_name": 102,
             "category": [
-                3,
-                6
+                3
             ]
         }
     },
@@ -1797,7 +1782,7 @@
             "original_rate": 80,
             "ethnic_food_name": 102,
             "category": [
-                5
+                3
             ]
         }
     },
@@ -1940,8 +1925,7 @@
             "original_rate": 85,
             "ethnic_food_name": 102,
             "category": [
-                3,
-                5
+                3
             ]
         }
     },
@@ -2032,7 +2016,7 @@
             "original_rate": 76,
             "ethnic_food_name": 103,
             "category": [
-                8
+                2
             ]
         }
     },
@@ -2076,8 +2060,7 @@
             "original_rate": 80,
             "ethnic_food_name": 103,
             "category": [
-                1,
-                5
+                8
             ]
         }
     },
@@ -2148,20 +2131,6 @@
         "fields": {
             "food_name": "Goya Chanpuru",
             "image_location": "http://drive.google.com/uc?export=view&id=1i2kAGBzVKe_tCkrtLkQoe9B0zQ9j085j",
-            "average_price": 7,
-            "original_rate": 65,
-            "ethnic_food_name": 103,
-            "category": [
-                5
-            ]
-        }
-    },
-    {
-        "model": "khubkhaoapp.food",
-        "pk": 3012,
-        "fields": {
-            "food_name": "GoyaChanpurü",
-            "image_location": "http://drive.google.com/uc?export=view&id=1SCC6hjYTD_E5SCtywj9kFN3U8Z4F4E54",
             "average_price": 7,
             "original_rate": 65,
             "ethnic_food_name": 103,
@@ -2267,8 +2236,8 @@
             "original_rate": 65,
             "ethnic_food_name": 103,
             "category": [
-                5,
-                6
+                6,
+                8
             ]
         }
     },
@@ -2296,8 +2265,7 @@
             "original_rate": 64,
             "ethnic_food_name": 103,
             "category": [
-                1,
-                8
+                1
             ]
         }
     },
@@ -2399,7 +2367,8 @@
             "original_rate": 76,
             "ethnic_food_name": 103,
             "category": [
-                2
+                7,
+                8
             ]
         }
     },
@@ -2512,7 +2481,9 @@
             "original_rate": 80,
             "ethnic_food_name": 103,
             "category": [
-                4
+                4,
+                5,
+                8
             ]
         }
     },
@@ -2614,8 +2585,7 @@
             "original_rate": 80,
             "ethnic_food_name": 103,
             "category": [
-                1,
-                8
+                1
             ]
         }
     },
@@ -2732,7 +2702,6 @@
             "original_rate": 64,
             "ethnic_food_name": 103,
             "category": [
-                2,
                 7
             ]
         }
@@ -2761,7 +2730,8 @@
             "original_rate": 75,
             "ethnic_food_name": 103,
             "category": [
-                2
+                2,
+                5
             ]
         }
     },
@@ -2775,6 +2745,7 @@
             "original_rate": 80,
             "ethnic_food_name": 103,
             "category": [
+                1,
                 4
             ]
         }
@@ -2818,6 +2789,7 @@
             "original_rate": 80,
             "ethnic_food_name": 103,
             "category": [
+                2,
                 8
             ]
         }
@@ -2922,7 +2894,6 @@
             "original_rate": 65,
             "ethnic_food_name": 104,
             "category": [
-                5,
                 8
             ]
         }
@@ -2937,6 +2908,7 @@
             "original_rate": 78,
             "ethnic_food_name": 104,
             "category": [
+                2,
                 8
             ]
         }
@@ -3068,8 +3040,8 @@
             "original_rate": 80,
             "ethnic_food_name": 104,
             "category": [
-                5,
-                8
+                1,
+                5
             ]
         }
     },
@@ -3111,6 +3083,7 @@
             "original_rate": 75,
             "ethnic_food_name": 104,
             "category": [
+                5,
                 8
             ]
         }
@@ -3226,7 +3199,8 @@
             "original_rate": 80,
             "ethnic_food_name": 104,
             "category": [
-                4
+                4,
+                8
             ]
         }
     },
@@ -3240,7 +3214,7 @@
             "original_rate": 60,
             "ethnic_food_name": 104,
             "category": [
-                5
+                8
             ]
         }
     },
@@ -3269,6 +3243,7 @@
             "original_rate": 74,
             "ethnic_food_name": 104,
             "category": [
+                5,
                 8
             ]
         }
@@ -3398,7 +3373,6 @@
             "ethnic_food_name": 104,
             "category": [
                 5,
-                6,
                 7
             ]
         }
@@ -3530,6 +3504,7 @@
             "ethnic_food_name": 104,
             "category": [
                 4,
+                5,
                 7
             ]
         }
@@ -3574,7 +3549,6 @@
             "ethnic_food_name": 104,
             "category": [
                 5,
-                6,
                 7
             ]
         }
@@ -3749,7 +3723,9 @@
             "original_rate": 77,
             "ethnic_food_name": 104,
             "category": [
-                6
+                5,
+                6,
+                8
             ]
         }
     },
@@ -3853,7 +3829,6 @@
             "original_rate": 65,
             "ethnic_food_name": 105,
             "category": [
-                5,
                 8
             ]
         }
@@ -3966,7 +3941,7 @@
             "original_rate": 76,
             "ethnic_food_name": 105,
             "category": [
-                3
+                8
             ]
         }
     },
@@ -4036,8 +4011,7 @@
             "original_rate": 77,
             "ethnic_food_name": 105,
             "category": [
-                7,
-                8
+                7
             ]
         }
     },
@@ -4166,8 +4140,7 @@
             "original_rate": 76,
             "ethnic_food_name": 105,
             "category": [
-                5,
-                6
+                8
             ]
         }
     },
@@ -4266,6 +4239,7 @@
             "original_rate": 79,
             "ethnic_food_name": 105,
             "category": [
+                6,
                 7
             ]
         }
@@ -4324,7 +4298,7 @@
             "original_rate": 74,
             "ethnic_food_name": 105,
             "category": [
-                8
+                3
             ]
         }
     },
@@ -4380,7 +4354,7 @@
             "original_rate": 65,
             "ethnic_food_name": 105,
             "category": [
-                6
+                8
             ]
         }
     },
@@ -4394,7 +4368,8 @@
             "original_rate": 62,
             "ethnic_food_name": 105,
             "category": [
-                6
+                5,
+                8
             ]
         }
     },
@@ -4422,7 +4397,8 @@
             "original_rate": 76,
             "ethnic_food_name": 105,
             "category": [
-                4
+                4,
+                5
             ]
         }
     },
@@ -4667,7 +4643,6 @@
             "original_rate": 62,
             "ethnic_food_name": 106,
             "category": [
-                5,
                 8
             ]
         }
@@ -4682,7 +4657,7 @@
             "original_rate": 76,
             "ethnic_food_name": 106,
             "category": [
-                8
+                1
             ]
         }
     },
@@ -4739,7 +4714,8 @@
             "original_rate": 60,
             "ethnic_food_name": 106,
             "category": [
-                4
+                4,
+                8
             ]
         }
     },
@@ -4782,7 +4758,9 @@
             "original_rate": 75,
             "ethnic_food_name": 106,
             "category": [
-                7
+                5,
+                7,
+                8
             ]
         }
     },
@@ -4796,7 +4774,8 @@
             "original_rate": 79,
             "ethnic_food_name": 106,
             "category": [
-                2
+                7,
+                8
             ]
         }
     },
@@ -4811,7 +4790,8 @@
             "ethnic_food_name": 106,
             "category": [
                 4,
-                5
+                5,
+                8
             ]
         }
     },
@@ -4825,7 +4805,6 @@
             "original_rate": 80,
             "ethnic_food_name": 106,
             "category": [
-                5,
                 8
             ]
         }
@@ -4885,8 +4864,7 @@
             "original_rate": 80,
             "ethnic_food_name": 106,
             "category": [
-                2,
-                7
+                2
             ]
         }
     },
@@ -4894,7 +4872,7 @@
         "model": "khubkhaoapp.food",
         "pk": 6020,
         "fields": {
-            "food_name": "Khua No Mai",
+            "food_name": "Khua Nor Mai",
             "image_location": "http://drive.google.com/uc?export=view&id=1eruwq6a0V6HWGw7E6Ai3SFpcNviZx2su",
             "average_price": 1.06,
             "original_rate": 65,
@@ -4988,7 +4966,7 @@
             "original_rate": 60,
             "ethnic_food_name": 106,
             "category": [
-                5
+                8
             ]
         }
     },
@@ -5162,7 +5140,9 @@
             "original_rate": 75,
             "ethnic_food_name": 106,
             "category": [
-                4
+                4,
+                5,
+                8
             ]
         }
     },
@@ -5246,7 +5226,7 @@
             "original_rate": 74,
             "ethnic_food_name": 106,
             "category": [
-                6
+                8
             ]
         }
     },
@@ -5288,7 +5268,8 @@
             "original_rate": 64,
             "ethnic_food_name": 106,
             "category": [
-                5
+                5,
+                8
             ]
         }
     },
@@ -5384,12 +5365,13 @@
         "model": "khubkhaoapp.food",
         "pk": 6054,
         "fields": {
-            "food_name": "Tom Yum Soup",
+            "food_name": "Tom Yum Goong",
             "image_location": "http://drive.google.com/uc?export=view&id=19_x4XI1W3cr0yWVGQpgYdV-ZzvWLAIDb",
             "average_price": 1.82,
             "original_rate": 78,
             "ethnic_food_name": 106,
             "category": [
+                4,
                 7
             ]
         }
@@ -5398,12 +5380,13 @@
         "model": "khubkhaoapp.food",
         "pk": 6055,
         "fields": {
-            "food_name": "Yum Chin Gai",
+            "food_name": "Yum Jin Gai",
             "image_location": "http://drive.google.com/uc?export=view&id=1-2n1rlocMCRhxkuBMQbLpO3beiYcPVop",
             "average_price": 1.82,
             "original_rate": 76,
             "ethnic_food_name": 106,
             "category": [
+                7,
                 8
             ]
         }
@@ -5477,7 +5460,7 @@
             "original_rate": 80,
             "ethnic_food_name": 107,
             "category": [
-                4
+                8
             ]
         }
     },
@@ -5505,7 +5488,8 @@
             "original_rate": 80,
             "ethnic_food_name": 107,
             "category": [
-                4
+                4,
+                8
             ]
         }
     },
@@ -5519,7 +5503,8 @@
             "original_rate": 62,
             "ethnic_food_name": 107,
             "category": [
-                1
+                2,
+                8
             ]
         }
     },
@@ -5604,6 +5589,7 @@
             "original_rate": 60,
             "ethnic_food_name": 107,
             "category": [
+                1,
                 8
             ]
         }
@@ -5618,6 +5604,7 @@
             "original_rate": 63,
             "ethnic_food_name": 107,
             "category": [
+                4,
                 8
             ]
         }
@@ -5674,7 +5661,6 @@
             "original_rate": 75,
             "ethnic_food_name": 107,
             "category": [
-                2,
                 7
             ]
         }
@@ -5849,7 +5835,7 @@
             "original_rate": 65,
             "ethnic_food_name": 107,
             "category": [
-                8
+                2
             ]
         }
     },
@@ -5992,21 +5978,6 @@
             "category": [
                 5,
                 8
-            ]
-        }
-    },
-    {
-        "model": "khubkhaoapp.food",
-        "pk": 7038,
-        "fields": {
-            "food_name": "Hoa Qua Dam",
-            "image_location": "http://drive.google.com/uc?export=view&id=1jqkoigEgOni5GriVzmqtCikp7U_O6rYh",
-            "average_price": 1.71,
-            "original_rate": 77,
-            "ethnic_food_name": 107,
-            "category": [
-                5,
-                6
             ]
         }
     },
