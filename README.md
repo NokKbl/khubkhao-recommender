@@ -88,8 +88,8 @@ Kornphon Noiprasert | [**Driveiei**](https://github.com/Driveiei) | Developer
     (env)$ python manage.py runserver
     ```
 **Social account for Tester** (include Facebook, Twitter and Google Plus)
-- **Email:** devtester018@gmail.com
-- **Password:** DevTester2018
+- **Email:** dxvtxxtxr@gmail.com
+- **Password:** XXXXXXXXXXXXXX
 
 **If you want to login into admin site at [localhost:8000/admin](http://localhost:8000/admin), you can do it by create superuser.**
 ```bash
