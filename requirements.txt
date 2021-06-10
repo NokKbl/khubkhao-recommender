@@ -3,6 +3,6 @@ psycopg2-binary
 python-decouple
 social-auth-app-django
 selenium
-Django==2.1.2
+Django==2.2.24
 gunicorn==19.9.0
 coverage
